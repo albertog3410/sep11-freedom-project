@@ -1,13 +1,15 @@
 # Tool Learning Log
 
-## Tool: **X**
+## Tool: **G Develop**
 
-## Project: **X**
+## Project: **Platformer Input Game**
 
 ---
 
-### X/X/XX:
-* Text
+### 9/30/2025:
+
+* You can edit a property's behavior by clicking the triple dots and go to "Edit Behaviors".
+*  
 
 ### X/X/XX:
 * Text
