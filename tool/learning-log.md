@@ -9,7 +9,15 @@
 ### 9/30/2025:
 
 * You can edit a property's behavior by clicking the triple dots and go to "Edit Behaviors".
-*  
+
+
+### 10/3/2025
+Task: Find way to implement Javascript into Gdevelop
+
+* Found Github folder that shows how to implement <a href="https://github.com/4ian/GDevelop/blob/master/newIDE/README-extensions.md">Extenisons to Javascript code</a>
+* 
+
+
 
 ### X/X/XX:
 * Text
