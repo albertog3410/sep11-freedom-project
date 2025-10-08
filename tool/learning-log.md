@@ -21,7 +21,9 @@ Task: Find way to implement Javascript into Gdevelop
 
 ### 10/8/25:
 * Video I found on how to use  <a href="https://www.youtube.com/watch?v=cv3qn-M4OH0">Javascript with Gdevelop</a> 
-* 
+* Already Downloaded Gdevelop into IDE.
+* Extenisons can be found when designing game on the website. 
+Try and Find time to ask on Slack channel about Gdevelop.
 
 <!-- 
 * Links you used today (websites, videos, etc)
