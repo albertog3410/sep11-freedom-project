@@ -15,13 +15,13 @@
 Task: Find way to implement Javascript into Gdevelop
 
 * Found Github folder that shows how to implement <a href="https://github.com/4ian/GDevelop/blob/master/newIDE/README-extensions.md">Extenisons to Javascript code</a>
+
+
+
+
+### 10/8/25:
+* Video I found on how to use  <a href="https://www.youtube.com/watch?v=cv3qn-M4OH0">Javascript with Gdevelop</a> 
 * 
-
-
-
-### X/X/XX:
-* Text
-
 
 <!-- 
 * Links you used today (websites, videos, etc)
