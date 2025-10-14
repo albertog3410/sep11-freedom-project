@@ -1,6 +1,6 @@
 # Tool Learning Log
 
-## Tool: **G Develop**
+## Tool: **Phaser**
 
 ## Project: **Platformer Input Game**
 
@@ -28,7 +28,10 @@ Try and Find time to ask on Slack channel about Gdevelop.
 
 * Gdevelop has not been working out due to complex code that did not really help me create what I wanted. 
 * Switching to <a href="https://phaser.io/tutorials/getting-started-with-phaser-launcher"> Phaser</a>.
-* 
+
+
+
+
 <!-- 
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
