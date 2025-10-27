@@ -31,6 +31,11 @@ Try and Find time to ask on Slack channel about Gdevelop.
 
 
 
+### 10/27/25
+* 
+
+
+
 
 <!-- 
 * Links you used today (websites, videos, etc)
