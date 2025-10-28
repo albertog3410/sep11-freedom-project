@@ -1,16 +1,40 @@
 # Tool Learning Log
 
-## Tool: **X**
+## Tool: **Phaser**
 
-## Project: **X**
+## Project: **Platformer Input Game**
 
 ---
 
-### X/X/XX:
-* Text
+### 9/30/2025:
 
-### X/X/XX:
-* Text
+* You can edit a property's behavior by clicking the triple dots and go to "Edit Behaviors".
+
+
+### 10/3/2025
+Task: Find way to implement Javascript into Gdevelop
+
+* Found Github folder that shows how to implement <a href="https://github.com/4ian/GDevelop/blob/master/newIDE/README-extensions.md">Extenisons to Javascript code</a>
+
+
+
+### 10/8/25:
+* Video I found on how to use  <a href="https://www.youtube.com/watch?v=cv3qn-M4OH0">Javascript with Gdevelop</a> 
+* Already Downloaded Gdevelop into IDE.
+* Extenisons can be found when designing game on the website. 
+Try and Find time to ask on Slack channel about Gdevelop.
+
+### 10/10/2025 
+
+* Gdevelop has not been working out due to complex code that did not really help me create what I wanted. 
+* Switching to <a href="https://phaser.io/tutorials/getting-started-with-phaser-launcher"> Phaser</a>.
+
+
+
+### 10/27/25
+* 
+
+
 
 
 <!-- 
