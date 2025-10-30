@@ -31,8 +31,9 @@ Try and Find time to ask on Slack channel about Gdevelop.
 
 
 
-### 10/27/25
-* 
+### 10/30/25
+* Phaser keeps redirecting me towards making an account in order to use phaser editor.
+* Once I have time, I will through <a href="https://github.com//phaserjs/editor-scripts-quick"> Phaser's github editor</a> to see if I can download and use javascript components. 
 
 
 
