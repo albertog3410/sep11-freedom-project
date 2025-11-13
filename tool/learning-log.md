@@ -1,6 +1,6 @@
 # Tool Learning Log
 
-## Tool: **Phaser**
+## Tool: **Kaboom**
 
 ## Project: **Platformer Input Game**
 
@@ -19,26 +19,27 @@ Task: Find way to implement Javascript into Gdevelop
 
 
 ### 10/8/25:
-* Video I found on how to use  <a href="https://www.youtube.com/watch?v=cv3qn-M4OH0">Javascript with Gdevelop</a> 
+* Video I found on how to use  <a href="https://www.youtube.com/watch?v=cv3qn-M4OH0">Javascript with Gdevelop</a>
 * Already Downloaded Gdevelop into IDE.
-* Extenisons can be found when designing game on the website. 
+* Extenisons can be found when designing game on the website.
 Try and Find time to ask on Slack channel about Gdevelop.
 
-### 10/10/2025 
+### 10/10/2025
 
-* Gdevelop has not been working out due to complex code that did not really help me create what I wanted. 
+* Gdevelop has not been working out due to complex code that did not really help me create what I wanted.
 * Switching to <a href="https://phaser.io/tutorials/getting-started-with-phaser-launcher"> Phaser</a>.
 
 
 
 ### 10/30/25
 * Phaser keeps redirecting me towards making an account in order to use phaser editor.
-* Once I have time, I will through <a href="https://github.com//phaserjs/editor-scripts-quick"> Phaser's github editor</a> to see if I can download and use javascript components. 
+* Once I have time, I will through <a href="https://github.com//phaserjs/editor-scripts-quick"> Phaser's github editor</a> to see if I can download and use javascript components.
 
 
+### 11/13/2025
+* 
 
-
-<!-- 
+<!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
 * Challenges, a-ha moments, etc
