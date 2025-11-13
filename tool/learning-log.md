@@ -37,7 +37,36 @@ Try and Find time to ask on Slack channel about Gdevelop.
 
 
 ### 11/13/2025
+* CDN package template to start with when creating a game for Kaboom
+
+```js
+<script type="module">
+
+// import kaboom.js
+import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
+
+// initialize kaboom context
+kaboom();
+
+// add a piece of text at position (120, 80)
+add([
+    text("hello"),
+    pos(120, 80),
+]);
+
+</script>
+
+
+```
+
+* `kaboom()` intializes the context of Kaboom.
+* `add([])` adds in the context.
+
+
+
+* Ask on Slack Channel if there is a way to use the images shown in the tutorial webpage. <a href="https://kaboomjs.com/doc/setup"> Kaboom </a>
 * 
+
 
 <!--
 * Links you used today (websites, videos, etc)
