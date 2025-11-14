@@ -2,18 +2,29 @@
 
 // import kaboom.js
 import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
+// start the game
 kaboom()
 
+// define gravity
+setGravity(200)
 
-// add something to screen
-// load a sprite "bean" from an image
-loadSprite("bean", "sprites/bean.png")
+// load a default sprite
+loadBean()
 
-// add something to screen
-add([
-    sprite("bean"),
-    pos(80, 40),
+// add character to screen, from a list of components
+const player = add([
+    sprite("bean"),  // renders as a sprite
+    pos(120, 80),    // position in world
+    area(),          // has a collider
+    body(),          // responds to physics and gravity
 ])
+
+// jump when player presses "space" key
+onKeyPress("space", () => {
+    // .jump() is provided by the body() component
+    player.jump()
+})
+
 
 </script>
 
