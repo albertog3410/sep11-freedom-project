@@ -70,7 +70,11 @@ add([
 ### 11/14/2025
 
 * When trying to load in a sprite, you can just put nothing inside of `loadBean()`.
+
+
+### 11/17/2025
 * 
+
 
 
 
