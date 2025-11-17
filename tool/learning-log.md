@@ -65,7 +65,16 @@ add([
 
 
 * Ask on Slack Channel if there is a way to use the images shown in the tutorial webpage. <a href="https://kaboomjs.com/doc/setup"> Kaboom </a>
+*
+
+### 11/14/2025
+
+* When trying to load in a sprite, you can just put nothing inside of `loadBean()`.
 * 
+
+
+
+
 
 
 <!--
