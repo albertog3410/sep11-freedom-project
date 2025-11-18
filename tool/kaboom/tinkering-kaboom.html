@@ -9,11 +9,11 @@ kaboom()
 setGravity(2000)
 
 // load a default sprite
-loadBean()
+loadBean(sprites/sprite.png)
 
 // add character to screen, from a list of components
 const player = add([
-    sprite("sprites/sprite.png"),  // renders as a sprite
+    sprite("sprite"),  // renders as a sprite
     pos(120, 80),    // position in world
     area(),          // has a collider
     body(),          // responds to physics and gravity

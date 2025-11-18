@@ -65,7 +65,7 @@ add([
 
 
 * Ask on Slack Channel if there is a way to use the images shown in the tutorial webpage. <a href="https://kaboomjs.com/doc/setup"> Kaboom </a>
-*
+
 
 ### 11/14/2025
 
@@ -73,8 +73,18 @@ add([
 
 
 ### 11/17/2025
-* 
+* `onKeyPress()` makes a key interactable.
 
+```js
+onKeyPress("space", () => {
+    // .jump() is provided by the body() component
+    player.jump()
+})
+
+```
+
+* `body(),` makes sprite respond to gravity
+* `pos(),` position of sprite on the screen.
 
 
 
