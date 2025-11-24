@@ -103,3 +103,35 @@ onKeyPress("space", () => {
 * Questions you still have
 * What you're going to try next
 -->
+
+### 11/24/2025
+
+* Creates the floor for sprite.
+```js
+add([
+    rect(width(), 48),
+    pos(0, height() - 48),
+    outline(4),
+    area(),
+    body({ isStatic: true }),
+    color(127, 200, 255),
+])
+```
+
+* To make your own image have an interable key, you must call its variable name.
+```js
+const player = add([
+    sprite("sprite"),  // renders as a sprite
+    pos(120, 80),    // position in world
+    area(),          // has a collider
+    body(),          // responds to physics and gravity
+    scale(0.2),
+
+])
+
+onKeyPress("space", () => {
+    player.jump()
+})
+```
+
+* 

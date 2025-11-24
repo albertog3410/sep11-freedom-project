@@ -11,6 +11,7 @@ setGravity(2000)
 // load a default sprite
 loadSprite("sprite", "sprites/sprite.png")
 
+
 // add character to screen, from a list of components
 const player = add([
     sprite("sprite"),  // renders as a sprite
@@ -18,13 +19,24 @@ const player = add([
     area(),          // has a collider
     body(),          // responds to physics and gravity
     scale(0.2),
+
 ])
 
-// jump when player presses "space" key
 onKeyPress("space", () => {
-    // .jump() is provided by the body() component
     player.jump()
 })
+
+
+
+add([
+    rect(width(), 48),
+    pos(0, height() - 48),
+    outline(4),
+    area(),
+    body({ isStatic: true }),
+    color(127, 200, 255),
+])
+
 
 
 </script>
