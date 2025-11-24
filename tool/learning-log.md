@@ -96,17 +96,11 @@ onKeyPress("space", () => {
 
 
 
-<!--
-* Links you used today (websites, videos, etc)
-* Things you tried, progress you made, etc
-* Challenges, a-ha moments, etc
-* Questions you still have
-* What you're going to try next
--->
+
 
 ### 11/24/2025
 
-* Creates the floor for sprite.
+* To create the floor for sprite, you can just use `ad([])`.
 ```js
 add([
     rect(width(), 48),
@@ -134,4 +128,16 @@ onKeyPress("space", () => {
 })
 ```
 
-* 
+*
+
+
+
+
+
+<!--
+* Links you used today (websites, videos, etc)
+* Things you tried, progress you made, etc
+* Challenges, a-ha moments, etc
+* Questions you still have
+* What you're going to try next
+-->
