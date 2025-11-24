@@ -87,6 +87,11 @@ onKeyPress("space", () => {
 * `pos(),` position of sprite on the screen.
 
 
+### 11/20/2025
+* In order to remove the background of a uploaded sprite, you would have to use an external photo editor to remove it before implementing it into your game.
+* To change the size of a sprite, use `.scale(),`.
+* Video found about how to use wall jumps, <a href="https://www.youtube.com/watch?v=TDqByrKVAZc"L>watch later</a>
+
 
 
 
