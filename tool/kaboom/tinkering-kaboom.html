@@ -3,7 +3,11 @@
 // import kaboom.js
 import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
 // start the game
-kaboom()
+kaboom({
+background: [167, 252, 245],
+
+}
+)
 
 // define gravity
 setGravity(2000)
@@ -15,7 +19,7 @@ loadSprite("sprite", "sprites/sprite.png")
 // add character to screen, from a list of components
 const player = add([
     sprite("sprite"),  // renders as a sprite
-    pos(120, 80),    // position in world
+    pos(80, 80),    // position in world
     area(),          // has a collider
     body(),          // responds to physics and gravity
     scale(0.2),
@@ -23,7 +27,9 @@ const player = add([
 ])
 
 onKeyPress("space", () => {
-    player.jump()
+   if (player.isGrounded()) {
+ player.jump(800);
+   }
 })
 
 
