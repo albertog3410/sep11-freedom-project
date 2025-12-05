@@ -56,6 +56,10 @@ add([
     color(127, 200, 255),
 ])
 
+
+
+
+
 function spawnTree() {
 
         // add tree obj
@@ -71,7 +75,7 @@ function spawnTree() {
         ]);
 
         // wait a random amount of time to spawn next tree
-        wait(rand(0.5, 1.5), spawnTree);
+        wait(rand(0.5, 2.5), spawnTree);
 
     }
 
@@ -82,18 +86,23 @@ function spawnTree() {
     player.onCollide("tree", () => {
         // go to "lose" scene and pass the score
         go("lose", score);
-        burp();
         addKaboom(player.pos);
     });
 
 
-scene("lose", () => {
+
+      scene("lose", () => {
     add([
         text("Game Over"),
         pos(center()),
         anchor("center"),
     ])
 })
+
+
+
+
+
 
 
 </script>

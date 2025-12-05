@@ -101,6 +101,7 @@ onKeyPress("space", () => {
 ### 11/24/2025
 
 * To create the floor for sprite, you can just use `ad([])`.
+
 ```js
 add([
     rect(width(), 48),
@@ -113,6 +114,7 @@ add([
 ```
 
 * To make your own image have an interable key, you must call its variable name.
+
 ```js
 const player = add([
     sprite("sprite"),  // renders as a sprite
@@ -128,8 +130,29 @@ onKeyPress("space", () => {
 })
 ```
 
-*
 
+
+### 12/1/2025
+
+* To make a sprite jump only once, use `(spritename).isGrounded()` inside of an `if(){}` statement.
+* Adding a `rand` to a `rect` randomizes the sizes based off the original. `rect(48, rand(32, 96)),`
+
+
+
+```js
+    if (player.isGrounded()) {
+ player.jump(800);
+   }
+
+```
+
+*  `rect(width(), 48),` = Maximum width that a platform that covers the entire screen.
+
+
+### 12/5/2025
+
+
+*
 
 
 
