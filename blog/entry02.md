@@ -4,7 +4,7 @@
 
 
 ### Where I am at Now
-So far in my SEP11 Freedom Project, I had just begun to tinker with my tool <a href="https://kaboomjs.com/">Kaboom</a>, which is a tool that me and my partner, Brianna will use to create our Spanish Platformer Game. 
+So far in my SEP11 Freedom Project, I had just begun to tinker with my tool <a href="https://kaboomjs.com/">Kaboom</a>, which is a tool that me and my partner, Brianna will use to create our Spanish Platformer Game. Being that we are individually tinkering with our tool, my goal for learning about Kaboom is to create a simple interable jumping game where the player can move around. So far in my time, I learned how to create moving objects that go from one side to another that changes a scene if it collides with the character. The code that I used for this was `.onCollide`, `add([])` and `spawnTree()`. 
 
 
 
@@ -12,8 +12,20 @@ So far in my SEP11 Freedom Project, I had just begun to tinker with my tool <a h
 
 
 
-### How I tinkered with Kaboom
-Since we have decided to go tinker with Kaboom, I decided to go with the same task I had for when I was trying to tinker with Phaser, due to the time I had left, my goal for this tool was to create an interable environment using the code I learned. After installing Kaboom, I was mainly looking at its website to see how I can download my own images into my game. However, when I downloaded the image and called it in `loadSprite`, the code wouldn't recognize it. I asked Brianna if she knew what was the issue, turns out I had to give to give my sprite a name next to the path that unlocks the sprite in `loadSprite`. Along the way, I also learned about other codes that I used to create a short sandbox where you can just repeatly jump, similar to a flappy birds game.  
+### Challenges I had with Kaboom
+ One challenge that I had when tinkering with Kaboom was how I can download my own images into my game. When I downloaded my image and called it in `loadSprite`, the code wouldn't recognize it. I asked Brianna if she knew what was the issue, turns out I had to give to give my sprite a name next to the path that unlocks the sprite in `loadSprite`. Along the way, I also learned about other codes that I used to create a short sandbox where you can just repeatly jump, similar to a flappy birds game.  
+
+```js
+
+// load a default sprite
+loadSprite("sprite", "sprites/sprite.png")
+
+```
+
+
+
+
+
 
 ```js
 // start the game
