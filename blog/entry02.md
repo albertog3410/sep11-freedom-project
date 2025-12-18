@@ -4,7 +4,7 @@
 
 
 ### Where I am at Now
-So far in my SEP11 Freedom Project, I had just begun to tinker with my tool <a href="https://kaboomjs.com/">Kaboom</a>, which is a tool that me and my partner, Brianna will use to create our Spanish Platformer Game. Being that we are individually tinkering with our tool, my goal for learning about Kaboom is to create a simple interable jumping game where the player can move around. So far in my time, I learned how to create moving objects that go from one side to another that changes a scene if it collides with the character. The code that I used for this was `.onCollide`, `add([])` and `spawnTree()`. Along the way, I also learned about other codes that I used to create a short sandbox where you can just repeatly jump, similar to a flappy birds game.  
+So far in my SEP11 Freedom Project, I had just begun to tinker with my tool <a href="https://kaboomjs.com/">Kaboom</a>, which is a tool that me and my partner, Brianna will use to create our Spanish Platformer Game. Being that we are individually tinkering with our tool, my goal for learning about Kaboom is to create a simple interactable jumping game where the player can move around. So far in my time, I learned how to create moving objects that go from one side to another that changes a scene if it collides with the character. The code that I used for this was `.onCollide`, `add([])` and `spawnTree()`. Along the way, I also learned about other codes that I used to create a short sandbox where you can just repeatly jump, similar to a flappy birds game.  
 
 
 
