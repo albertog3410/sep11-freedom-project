@@ -7,22 +7,20 @@ Throughout these few weeks, I am managing to understanding many components of <a
 
 
 ### How I Made my Base Starter for Creating Future Code
-Keeping my goal in mind, I started out looking at Kaboom's website and seeing how each component is used in the code and change it as I take notes about my comprehension of the notes in my learning log. 
+Keeping my goal in mind, I started out looking at Kaboom's website and seeing how each component is used in the code and change it as I take notes about my comprehension of the notes in my learning log. I first started with the <a href="https://kaboomjs.com/doc/intro">Introduction page</a>, following the steps to create a simple interactable jumping sandbox game where I have to jump over trees/rectangles. Some components that I have learned when creating 
+
+At this point, one challenge that I had when creating the game downloading my own images into my game. When I downloaded my image and called it in `loadSprite`, the code wouldn't recognize it. I tried looking at Kaboom's website to see if I was doing anything wrong, but it looked like that I was doing everything correctly. After that, I asked Brianna if she knew what was the issue, turns out I had to code in `loadSprite("sprite", "sprites/sprite.png")` in order to give my sprite a name next to the path that unlocks the sprite for it to be accessible for `sprite()`. 
 
 
-create a simple interactable jumping sandbox game
-
-
-
+###### Base Starter
 ```js
-// start the game
-kaboom()
+kaboom() // starts the game
 
-// define gravity
-setGravity(2000)
+setGravity(2000) // defines gravity to sprites with a `body()`
 
 // load a default sprite
 loadSprite("sprite", "sprites/sprite.png")
+
 
 
 // add character to screen, from a list of components
@@ -34,10 +32,39 @@ const player = add([
     scale(0.2),     // size of the sprite
 
 ])
+
+onKeyPress("space", () => {
+   if (player.isGrounded()) { // code works if player is on a surface
+ player.jump(800);
+   }
+})
+
+
+onKeyDown("left", () => {
+	// .move() is provided by pos() component, move by pixels per second
+	player.move(-SPEED, 0)
+})
+const SPEED = 500 
+
+onKeyDown("right", () => {
+	player.move(SPEED, 0)
+})
+
+
+const FLOOR_HEIGHT = 55;
+
+
+
+add([
+    rect(width(), 48),
+    pos(0, height() - 48),
+    outline(4), 
+    area(),
+    body({ isStatic: true }),
+    color(127, 200, 255),
+])
 ```
 
-### Challenges I had with Kaboom
- One challenge that I had when tinkering with Kaboom was how I can download my own images into my game. When I downloaded my image and called it in `loadSprite`, the code wouldn't recognize it. I tried looking at Kaboom's website to see if I was doing anything wrong, but it looked like that I was doing everything correctly. After that, I asked Brianna if she knew what was the issue, turns out I had to code in `loadSprite("sprite", "sprites/sprite.png")` in order to give my sprite a name next to the path that unlocks the sprite in `loadSprite`. 
  
 
 
