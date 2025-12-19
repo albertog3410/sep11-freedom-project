@@ -33,9 +33,11 @@ const player = add([
 const platform = add([
     sprite("platform"),
     pos(200, 400),
-    scale(0.25),
     area(),
+    scale(0.3),
   body({ isStatic: true }),
+        move(LEFT, 40),
+        move(RIGHT, 40),
 
 
 
