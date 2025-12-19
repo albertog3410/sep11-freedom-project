@@ -3,10 +3,10 @@
 ##### 12/15/25
 
 ### Where I am at Now
-So far in my SEP11 Freedom Project, I had just begun to tinker with my tool <a href="https://kaboomjs.com/">Kaboom</a>, which is a tool that me and my partner, Brianna will use to create our Spanish Platformer Game. Being that we are individually tinkering with our tool, my goal for learning about Kaboom for winter break is to create interable platforms that the player can jump on. So far in my time, I learned how to create moving objects that go from one side to another that changes a scene if it collides with the character. The code that I used for this was `.onCollide`, and many new aspects of using `add([])`.  
+Throughout these few weeks, I am managing to understanding many components of <a href="https://kaboomjs.com/">Kaboom</a>, which is a tool that me and my partner, Brianna will use to create our Spanish Platformer Game. Being that we are individually tinkering with our tool, my goal for learning about Kaboom for winter break is to create interable platforms that the player can jump on. So far in my time, I learned how to create moving objects that go from one side to another that changes a scene if it collides with the character. The code that I used for this was `.onCollide`, and many new aspects of using `add([])`.  
 
 
-### How I tinkered with Kaboom
+### How I Made my Base Starter for Creating Future Code
 Keeping my goal in mind, I started out looking at Kaboom's website and seeing how each component is used in the code and change it as I take notes about my comprehension of the notes in my learning log. 
 
 
