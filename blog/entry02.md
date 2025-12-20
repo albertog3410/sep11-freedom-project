@@ -3,16 +3,61 @@
 ##### 12/15/25
 
 ### Where I am at Now
-Throughout these few weeks, I am managing to understanding many components of <a href="https://kaboomjs.com/">Kaboom</a>, which is a tool that me and my partner, Brianna will use to create our Spanish Platformer Game. Being that we are individually tinkering with our tool, my goal for learning about Kaboom for winter break is to create interable platforms that the player can jump on. So far in my time, I learned how to create moving objects that go from one side to another that changes a scene if it collides with the character. The code that I used for this was `.onCollide`, and many new aspects of using `add([])`.  
+Throughout these few weeks, I am managing to understanding many components of <a href="https://kaboomjs.com/">Kaboom</a>, which is a tool that me and my partner, Brianna will use to create our Spanish Platformer Game. Being that we are individually tinkering with our tool, my goal for learning about Kaboom for winter break is to create interable platforms that the player can jump on. So far in my time, I learned how to create moving objects that go from one side to another that changes a scene if it collides with the character. 
 
 
 ### How I Made my Base Starter for Creating Future Code
-Keeping my goal in mind, I started out looking at Kaboom's website and seeing how each component is used in the code and change it as I take notes about my comprehension of the notes in my learning log. I first started with the <a href="https://kaboomjs.com/doc/intro">Introduction page</a>, following the steps to create a simple interactable jumping sandbox game where I have to jump over trees/rectangles. Some components that I have learned when creating 
+Keeping my goal in mind, I started out looking at Kaboom's website and seeing how each component is used in the code and change it as I take notes about my comprehension of the notes in my learning log. I first started with the <a href="https://kaboomjs.com/doc/intro">Introduction page</a>, following the steps to create a simple interactable jumping sandbox game where I have to jump over trees/rectangles. At this point, one challenge that I had when creating the game downloading my own images into my game. When I downloaded my image and called it in `loadSprite`, the code wouldn't recognize it. I tried looking at Kaboom's website to see if I was doing anything wrong, but it looked like that I was doing everything correctly. After that, I asked Brianna if she knew what was the issue, turns out I had to code in `loadSprite("sprite", "sprites/sprite.png")` in order to give my sprite a name next to the path that unlocks the sprite for it to be accessible for `sprite()`. After this, I had to give them a variable name `player` and put their name given name in `loadsprite()` into the parathesis of `sprite()` from inside the variable's `add([})`. From there, I started editing with new components inside of `add([})` that determine a sprite's position and reactions when it comes in contact with another sprite. 
 
-At this point, one challenge that I had when creating the game downloading my own images into my game. When I downloaded my image and called it in `loadSprite`, the code wouldn't recognize it. I tried looking at Kaboom's website to see if I was doing anything wrong, but it looked like that I was doing everything correctly. After that, I asked Brianna if she knew what was the issue, turns out I had to code in `loadSprite("sprite", "sprites/sprite.png")` in order to give my sprite a name next to the path that unlocks the sprite for it to be accessible for `sprite()`. 
+```js
+const player = add([
+    sprite("sprite"),  // renders as a sprite
+    pos(120, 80),    // position in world
+    area(),          // has a collider
+    body(),          // responds to physics and gravity
+    scale(0.2),      // determines size of sprite
+
+])
+```
+Next, in order to create
 
 
-###### Base Starter
+
+```js
+
+onKeyPress("space", () => {
+   if (player.isGrounded()) { // code works if player is on a surface
+ player.jump(800);
+   }
+})
+
+
+onKeyDown("left", () => {
+	// .move() is provided by pos() component, move by pixels per second
+	player.move(-SPEED, 0)
+})
+const SPEED = 500 
+
+onKeyDown("right", () => {
+	player.move(SPEED, 0)
+})
+
+
+const FLOOR_HEIGHT = 55;
+
+
+
+add([
+    rect(width(), 48),
+    pos(0, height() - 48),
+    outline(4), 
+    area(),
+    body({ isStatic: true }),
+    color(127, 200, 255),
+])
+```
+
+###### Full Base Starter
 ```js
 kaboom() // starts the game
 
@@ -77,7 +122,7 @@ add([
 
 
 
-
+<a href="https://www.youtube.com/watch?v=iM1iSvloMlo"> </a> 
 
 
 
