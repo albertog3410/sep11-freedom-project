@@ -121,7 +121,7 @@ const player = add([
     pos(120, 80),    // position in world
     area(),          // has a collider
     body(),          // responds to physics and gravity
-    scale(0.2),
+    scale(0.2),      // determines size of sprite
 
 ])
 
