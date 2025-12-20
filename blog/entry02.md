@@ -7,9 +7,12 @@ Throughout these few weeks, I am managing to understanding many components of <a
 
 
 ### How I Made my Base Starter for Creating Future Code
-Keeping my goal in mind, I started out looking at Kaboom's website and seeing how each component is used in the code and change it as I take notes about my comprehension of the notes in my learning log. I first started with the <a href="https://kaboomjs.com/doc/intro">Introduction page</a>, following the steps to create a simple interactable jumping sandbox game where I have to jump over trees/rectangles. At this point, one challenge that I had when creating the game downloading my own images into my game. When I downloaded my image and called it in `loadSprite`, the code wouldn't recognize it. I tried looking at Kaboom's website to see if I was doing anything wrong, but it looked like that I was doing everything correctly. After that, I asked Brianna if she knew what was the issue, turns out I had to code in `loadSprite("sprite", "sprites/sprite.png")` in order to give my sprite a name next to the path that unlocks the sprite for it to be accessible for `sprite()`. After this, I had to give them a variable name `player` and put their name given name in `loadsprite()` into the parathesis of `sprite()` from inside the variable's `add([})`. From there, I started editing with new components inside of `add([})` that determine a sprite's position and reactions when it comes in contact with another sprite. 
+Keeping my goal in mind, I started out looking at Kaboom's website and seeing how each component is used in the code and change it as I take notes about my comprehension of the notes in my learning log. I first started with the <a href="https://kaboomjs.com/doc/intro">Introduction page</a>, following the steps to create a simple interactable jumping sandbox game where I have to jump over trees/rectangles, which I will get to later. At this point, one challenge that I had when creating the game downloading my own images into my game. When I downloaded my image and called it in `loadSprite`, the code wouldn't recognize it. I tried looking at Kaboom's website to see if I was doing anything wrong, but it looked like that I was doing everything correctly. After that, I asked Brianna if she knew what was the issue, turns out I had to code in `loadSprite("sprite", "sprites/sprite.png")` in order to give my sprite a name next to the path that unlocks the sprite for it to be accessible for `sprite()`. After this, I had to give them a variable name `player` and put their name given name in `loadsprite()` into the parathesis of `sprite()` from inside the variable's `add([})`. From there, I started editing with new components inside of `add([})` that determine a sprite's position and reactions when it comes in contact with another sprite. 
 
 ```js
+
+setGravity(2000) // defines gravity
+
 const player = add([
     sprite("sprite"),  // renders as a sprite
     pos(120, 80),    // position in world
@@ -19,10 +22,8 @@ const player = add([
 
 ])
 ```
-Next, in order to create
 
-
-
+Next, in order to make keys that move the sprite's position, I have to use `onKeyPress()` and `onKeyDown` to make the key buttons move the sprite in a certain direction. I would also have to put a variable for the speed at which the sprite's move by containing the variable inside of `.move()`. For making the sprite jump, it works the same as getting the other keys to move the sprite, except you do not need to make a seperate variable. You can just input the number at which height you would want the sprite to jump by using `.jump()`. To make the sprite only be able to jump once, I had to put `.isGrounded()` inside of a `if()` statement so that the sprite can only jump when it is on the ground. Along the way, I did also find a video that I will plan to watch later on about <a href="https://www.youtube.com/watch?v=TDqByrKVAZc">How to make wall jumps.</a>
 ```js
 
 onKeyPress("space", () => {
