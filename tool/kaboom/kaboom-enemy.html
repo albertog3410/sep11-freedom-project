@@ -16,6 +16,14 @@ setGravity(2000)
 
 loadSprite("sprite", "sprites/sprite.png")
 loadSprite("platform", "sprites/platform.png");
+loadBean("bean")
+
+
+const ENEMY_SPEED = 160
+const BULLET_SPEED = 800
+
+
+
 
 // add character to screen, from a list of components
 const player = add([
@@ -29,7 +37,22 @@ const player = add([
 
 
 
+// random default character
+const enemy = add([
+    sprite("bean"),  // renders as a sprite
+    pos(500, 80),    // position in world
+    area(),          // has a collider
+    body(),          // responds to physics and gravity
+state("move", [ "idle", "attack", "move" ]),
 
+])
+
+
+
+
+
+
+// platform character
 const platform = add([
     sprite("platform"),
     pos(200, 400),
@@ -76,9 +99,70 @@ add([
     color(127, 200, 255),
 ])
 
-  player.onCollide("platorm", () => {
-        destroy(player)
-    });
+
+
+
+
+
+
+
+
+
+
+// Run the callback once every time we enter "idle" state.
+// Here we stay "idle" for 0.5 second, then enter "attack" state.
+enemy.onStateEnter("idle", async () => {
+	await wait(0.5)
+	enemy.enterState("attack")
+})
+
+// When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
+enemy.onStateEnter("attack", async () => {
+
+	// Don't do anything if player doesn't exist anymore
+	if (player.exists()) {
+
+		const dir = player.pos.sub(enemy.pos).unit()
+
+		add([
+			pos(enemy.pos),
+			move(dir, BULLET_SPEED),
+			rect(12, 12),
+			area(),
+			offscreen({ destroy: true }),
+			anchor("center"),
+			color(BLUE),
+			"bullet",
+		])
+
+	}
+
+	await wait(1)
+	enemy.enterState("move")
+
+})
+
+enemy.onStateEnter("move", async () => {
+	await wait(2)
+	enemy.enterState("idle")
+})
+
+// Like .onUpdate() which runs every frame, but only runs when the current state is "move"
+// Here we move towards the player every frame if the current state is "move"
+enemy.onStateUpdate("move", () => {
+	if (!player.exists()) return
+	const dir = player.pos.sub(enemy.pos).unit()
+	enemy.move(dir.scale(ENEMY_SPEED))
+})
+
+// Taking a bullet makes us disappear
+player.onCollide("bullet", (bullet) => {
+	destroy(bullet)
+	destroy(player)
+	addKaboom(bullet.pos)
+})
+
+
 
 
 
