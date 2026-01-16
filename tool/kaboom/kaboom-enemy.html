@@ -76,7 +76,9 @@ add([
     color(127, 200, 255),
 ])
 
-
+  player.onCollide("platorm", () => {
+        destroy(player)
+    });
 
 
 
