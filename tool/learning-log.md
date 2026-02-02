@@ -149,10 +149,15 @@ onKeyPress("space", () => {
 *  `rect(width(), 48),` = Maximum width that a platform that covers the entire screen.
 
 
-### 12/21/2025
+### 1/13/2026
+
+* Challenge:  Figuring out how to have the platform move left and right at certain positions.
+  - Platform only moves to the right side all the way.
 
 
-*
+### 1/16/2026
+
+* 
 
 
 
