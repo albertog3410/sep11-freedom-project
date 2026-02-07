@@ -73,7 +73,7 @@ So far, I am between stages two and three of the Engineering Design Process, whi
 I feel like I am growing in **Debugging Code** because before, I would usually just copy and paste the code without really knowing what the issue is if there is an error. Now, when I am actually working out in my head what each component is meant to do, I have a better understanding of how to implement them when I will start working on the project. Another skill that I am improving in but still working on is **Paying Attention to Detail**. I say this because while I was learning how to make a bullet, at first the bullet wouldn't even fire or affect the player in anyway. It took me some time to realize that I forgot to put `	destroy(bullet)`, so that the bulley also disappears when hitting the player. This way, the bullet won't just phase through and do nothing. 
 
 ### Next Steps
-
+Throughout these next few weeks, I am planning on starting to fix the issue that I had with the platform only moving in one direction as well as go through the Kaboom.js Library to see what other components that I can learn. I also plan on learning how to make and use scenes to make multiple levels. Overall, I am enjoying learning about Kaboom and its components and I am to learn more about it!
 
 
 
