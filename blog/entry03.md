@@ -21,13 +21,61 @@ const platform = add([
 
 ```
 ### How I Created an AI Enemy 
-After first creating the enemy character inside a variable, I used a new component called `state()` that is meant to tell the AI what actions it can take in what order using the <a href="https://kaboomjs.com/#state">Kaboom.js library</a>. The actions that the enemy AI can take are arranged to having it moving to then attacking with it stopping for a short period of time, `state("move", [ "idle", "attack", "move" ])`. 
+After first creating the enemy character inside a variable, I used a new component called `state()` that is meant to tell the AI what actions it can take in what order using the <a href="https://kaboomjs.com/#state">Kaboom.js library</a>. The actions that the enemy AI can take are arranged to having it moving to then attacking with it stopping for a short period of time, `state("move", [ "idle", "attack", "move" ])`. Then using `.onStateEnter()`, I make the enemy AI switch to another state after a certain period of time using `await`. 
+
+
+```js
+enemy.onStateEnter("idle", async () => {
+	await wait(0.5)
+	enemy.enterState("attack")
+})
+
+// When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
+enemy.onStateEnter("attack", async () => {
+```
+Lastly, I had to make a bullet that the enemy AI can fire to attack the player. To do this, 
 
 
 
 
 
 
+
+
+
+
+
+
+
+```js
+
+
+
+		add([
+			pos(enemy.pos),
+			move(dir, BULLET_SPEED),
+			rect(12, 12),
+			area(),
+			offscreen({ destroy: true }),
+			anchor("center"),
+			color(BLUE),
+			"bullet",
+		])
+
+	}
+
+	await wait(1)
+	enemy.enterState("move")
+
+})
+
+enemy.onStateEnter("move", async () => {
+	await wait(2)
+	enemy.enterState("idle")
+})
+
+
+```
 
 
 ```js
