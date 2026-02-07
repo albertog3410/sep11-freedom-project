@@ -170,7 +170,7 @@ I feel like I am growing in **Perservance** because learning all the concepts th
 
 
 ### Next Steps
-Throughout these next few weeks, I am planning on also making an AI sprite that attacks the player, but before I do that, I am trying to make a platform that moes back anf forward so that I can first understand how to get the AI sprite to move on its own. Overall, I do enjoy learning about Kaboom and its components and I am eager to learn more about it!
+Throughout these next few weeks, I am planning on also making an AI sprite that attacks the player, but before I do that, I am trying to make a platform that moes back and forward so that I can first understand how to get the AI sprite to move on its own. Overall, I do enjoy learning about Kaboom and its components and I am eager to learn more about it!
 
 [Previous](entry01.md) | [Next](entry03.md)
 
