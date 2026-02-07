@@ -30,27 +30,21 @@ enemy.onStateEnter("idle", async () => {
 	enemy.enterState("attack")
 })
 
-// When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
-enemy.onStateEnter("attack", async () => {
+
+await wait(1)
+	enemy.enterState("move")
+
+})
+
+enemy.onStateEnter("move", async () => {
+	await wait(2)
+	enemy.enterState("idle")
+})
+
+
 ```
-Lastly, I had to make a bullet that the enemy AI can fire to attack the player. To do this, 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Lastly, I had to make a bullet that the enemy AI can fire to attack the player. To do this, I had to make the bullet itself in an individual `add()` element while applying two seperate variables containing its bullet and enemy speed for when the bullet collides with the player. 
 ```js
-
-
-
 		add([
 			pos(enemy.pos),
 			move(dir, BULLET_SPEED),
@@ -63,22 +57,6 @@ Lastly, I had to make a bullet that the enemy AI can fire to attack the player. 
 		])
 
 	}
-
-	await wait(1)
-	enemy.enterState("move")
-
-})
-
-enemy.onStateEnter("move", async () => {
-	await wait(2)
-	enemy.enterState("idle")
-})
-
-
-```
-
-
-```js
 player.onCollide("bullet", (bullet) => {
 	destroy(bullet)
 	destroy(player)
