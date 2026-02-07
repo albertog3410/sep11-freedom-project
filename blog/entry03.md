@@ -23,7 +23,6 @@ const platform = add([
 ### How I Created an AI Enemy 
 After first creating the enemy character inside a variable, I used a new component called `state()` that is meant to tell the AI what actions it can take in what order using the <a href="https://kaboomjs.com/#state">Kaboom.js library</a>. The actions that the enemy AI can take are arranged to having it moving to then attacking with it stopping for a short period of time, `state("move", [ "idle", "attack", "move" ])`. Then using `.onStateEnter()`, I make the enemy AI switch to another state after a certain period of time using `await`. 
 
-
 ```js
 enemy.onStateEnter("idle", async () => {
 	await wait(0.5)
@@ -68,10 +67,12 @@ player.onCollide("bullet", (bullet) => {
 
 
 ### Engineering Design Process 
-So far, I am between stages two and three of the Engineering Design Process, which is to **Research the Problem** and **Brainastorm Possible Solutions**. I say this because me and my partner are still continuing the research ways that we can implement Spanish in a platformer game. We have been looking through videos on how to create a platform game, not to use it for the whole project, but to see how each component is used so that we can better understand them. This way, we can brainstorm possible ways that Kaboom can be used when me and my partner create the project. There is still one video that I am doing my best in getting the time to watch that explains <a href="https://www.youtube.com/watch?v=iM1iSvloMlo">how to make an AI boss and shift from different scenes</a>.
+So far, I am between stages two and three of the Engineering Design Process, which is to **Research the Problem** and **Brainstorm Possible Solutions**. I say this because me and my partner are still continuing the research ways that we can implement Spanish in a platformer game. We have been looking through videos on how to create a platform game, not to use it for the whole project, but to see how each component is used so that we can better understand them. This way, we can brainstorm possible ways that Kaboom can be used when me and my partner create the project. There is still one video that I am doing my best in getting the time to watch that explains <a href="https://www.youtube.com/watch?v=iM1iSvloMlo">how to make an AI boss and shift from different scenes</a>.
 
 ### Skills Learned 
+I feel like I am growing in **Debugging Code** because before, I would usually just copy and paste the code without really knowing what the issue is if there is an error. Now, when I am actually working out in my head what each component is meant to do, I have a better understanding of how to implement them when I will start working on the project. Another skill that I am improving in but still working on is **Paying Attention to Detail**. I say this because while I was learning how to make a bullet, at first the bullet wouldn't even fire or affect the player in anyway. It took me some time to realize that I forgot to put `	destroy(bullet)`, so that the bulley also disappears when hitting the player. This way, the bullet won't just phase through and do nothing. 
 
+### Next Steps
 
 
 
