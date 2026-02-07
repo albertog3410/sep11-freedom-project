@@ -68,7 +68,10 @@ player.onCollide("bullet", (bullet) => {
 
 
 ### Engineering Design Process 
-So far 
+So far, I am between stages two and three of the Engineering Design Process, which is to **Research the Problem** and **Brainastorm Possible Solutions**. I say this because me and my partner are still continuing the research ways that we can implement Spanish in a platformer game. We have been looking through videos on how to create a platform game, not to use it for the whole project, but to see how each component is used so that we can better understand them. This way, we can brainstorm possible ways that Kaboom can be used when me and my partner create the project. There is still one video that I am doing my best in getting the time to watch that explains <a href="https://www.youtube.com/watch?v=iM1iSvloMlo">how to make an AI boss and shift from different scenes</a>.
+
+### Skills Learned 
+
 
 
 
