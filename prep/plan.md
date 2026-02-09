@@ -1,13 +1,21 @@
 # Plan
 
-## Tool: 
-## Product: 
+## Tool: Kaboom
+## Product: Spanish Platformer Game
 
 ---
 
 ## Timeline
 
+
+
+
+
+
 #### MVP
+
+4 levels (2-3 scenes each): - 
+
 
 - [ ] Task (deadline: X)
   - [ ] Subtask (deadline: X)
@@ -49,7 +57,7 @@
 
 <!-- DO NOT USE THIS YET
 
-#### Peer Feedback 
+#### Peer Feedback
 
 | Name | Glows | Grows |
 | -------- | ------- | ------- |
