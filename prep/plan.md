@@ -1,29 +1,33 @@
+
 # Plan
 
 ## Tool: Kaboom
-## Product: Spanish Platformer Game
-
+## Product: Spanish Learning Platform
+### Additional Partner(s): Alberto Gonzalez Jr. & Brianna 'Bri' Peralta
 ---
 
 ## Timeline
 
+### MVP:
 
+#### Primary Platformer:
+   ##### 4 Levels (2-3 Scenes each):
+     - [ ] Design the Levels on Paper (Alberto + Bri) (Due by 03/09)
+     - [ ] Create the Scenes and 'Pinpoints/Checkpoints' (Alberto + Bri) (Due by 03/15)
+     - [ ] Generate the AI for Enemies (Alberto) (Due by 04/12)
+       - [ ] Connect Flashcards to Damage (Alberto) (Due by 04/12)
+     - [ ] Create the 'Flashcards' (Bri) (Due by 03/16)
+       - [ ] Organize 'Flashcards' into Categories (Bri) (Due by 03/29 - After Creation)
+   ##### Menu Screen:
+     - [ ] Design the menu screen on Paper (Alberto + Bri) (Due by 03/29)
+     - [ ] Connect Keyboard Keys on Screen (Bri) (Due by 04/03)
 
+### Beyond MVP:
 
-
-
-#### MVP
-
-4 levels (2-3 scenes each): - 
-
-
-- [ ] Task (deadline: X)
-  - [ ] Subtask (deadline: X)
-
-#### Beyond MVP
-
-- [ ] Task
-  - [ ] Subtask
+     - [ ] Create a 'Character Select Screen' (Alberto + Bri)
+       - [ ] Make custom sprites for movement (Alberto + Bri)
+     - [ ] Create the Backdrops of Levels (Bri)
+     <!-- Backdrop will be in style of SMB -->
 
 
 <!-- EXAMPLE
