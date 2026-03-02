@@ -126,15 +126,14 @@ enemy.onStateEnter("attack", async () => {
 
 	}
 
-	await wait(1)
 	enemy.enterState("move")
 
 })
 
-enemy.onStateEnter("move", async () => {
-	await wait(1)
-	enemy.enterState("idle")
+player.onCollide("enemy", (enemy) => {
+	destroy(player);
 })
+
 
 // Like .onUpdate() which runs every frame, but only runs when the current state is "move"
 // Here we move towards the player every frame if the current state is "move"
@@ -144,11 +143,6 @@ enemy.onStateUpdate("move", () => {
 	enemy.move(dir.scale(ENEMY_SPEED))
 })
 
-// Taking a bullet makes us disappear
-player.onCollide("enemy", () => {
-	go("lose")
-	destroy(player)
-})
 
 
 
