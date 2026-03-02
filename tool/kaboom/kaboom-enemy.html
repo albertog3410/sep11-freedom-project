@@ -20,6 +20,7 @@ loadBean("bean")
 
 
 const ENEMY_SPEED = 500;
+const BULLET_SPEED = 800
 
 
 
@@ -31,6 +32,7 @@ const player = add([
     area(),          // has a collider
     body(),          // responds to physics and gravity
     scale(0.2),
+    health(3),
 ])
 
 
@@ -42,8 +44,7 @@ const enemy = add([
     pos(500, 80),    // position in world
     area(),          // has a collider
     body(),          // responds to physics and gravity
-state("move", [ "idle", "attack", "move" ]),
-
+	state("move", [ "idle", "attack", "move" ]),
 ])
 
 
@@ -108,8 +109,6 @@ add([
 
 
 
-// Run the callback once every time we enter "idle" state.
-// Here we stay "idle" for 0.5 second, then enter "attack" state.
 enemy.onStateEnter("idle", async () => {
 	await wait(0.5)
 	enemy.enterState("attack")
@@ -123,17 +122,28 @@ enemy.onStateEnter("attack", async () => {
 
 		const dir = player.pos.sub(enemy.pos).unit()
 
+		add([
+			pos(enemy.pos),
+			move(dir, BULLET_SPEED),
+			rect(12, 12),
+			area(),
+			offscreen({ destroy: true }),
+			anchor("center"),
+			color(BLUE),
+			"bullet",
+		])
 
 	}
 
+	await wait(1)
 	enemy.enterState("move")
 
 })
 
-player.onCollide("enemy", (enemy) => {
-	destroy(player);
+enemy.onStateEnter("move", async () => {
+	await wait(2)
+	enemy.enterState("idle")
 })
-
 
 // Like .onUpdate() which runs every frame, but only runs when the current state is "move"
 // Here we move towards the player every frame if the current state is "move"
@@ -143,8 +153,12 @@ enemy.onStateUpdate("move", () => {
 	enemy.move(dir.scale(ENEMY_SPEED))
 })
 
-
-
+// Taking a bullet makes us disappear
+player.onCollide("bullet", (bullet) => {
+	destroy(bullet)
+	destroy(player)
+	addKaboom(bullet.pos)
+})
 
 
 
