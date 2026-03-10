@@ -156,8 +156,13 @@ onKeyPress("space", () => {
 
 
 ### 2/2/2026
+##### Goal:
+- 1. Connect a prompt to damage.
 
-* 
+- 2. Connect a enemy to the prompt.
+
+
+*
 
 
 
