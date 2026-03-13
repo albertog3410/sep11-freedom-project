@@ -104,16 +104,14 @@ However, when I ran the code, answering the prompt right or wrong did not change
 
 
 ### EDP
-So far in the Engineering Design Process, I am at step 5, which is to **Create A Prototype**. I say this because in order to understand what we were going to do first when creating the game, me and Brianna had to first create an MVP in order to break our project down into smaller pieces. This way, we can effectively plan out how we were going to set up our project.  
+So far I am at stage 5 of the Engineering Design Process, which is to **Create A Prototype**. I say this because in order to understand what we were going to do first when creating the game, me and Brianna had to first create an MVP in order to break our project down into smaller pieces. This way, we can effectively plan out how we were going to set up our project.  
 
 ### Skills 
-I feel like I am growing in 
+I feel like I am growing in **Communication** because before, I neve really talked with my partner about our progress with kaboom.js until now. Now, I do feel that we are collaborating way more and showing what we have learned when tinkering with kaboom. Another skill that I am still working on is **Time Management**. I say this because I never really take the time to work on tinkering with kaboom. Now as I am building towards the MVP, I am starting to set time for completing the tasks that I need to do so that me and my partner can find the most effective way of building our project.
 
 
 ### Next Steps
-
-
-What I plan on doing is telling Brianna about the issue that I am having, this way we can both figure out a solution to what is happening with the code. 
+What I plan on doing next is telling Brianna about the issue that I am having with the prompts. This way we can both figure out a solution to what is happening with the code. Overall, process with the MVP has been going well and I am enjoying working on a project such as this one!
 
 [Previous](entry03.md) | [Next](entry05.md)
 
