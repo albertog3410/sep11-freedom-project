@@ -158,8 +158,11 @@ onKeyPress("space", () => {
 ### 2/2/2026
 ##### Goal:
 - 1. Connect a prompt to damage.
-
+3/5: Using Bri's starter to connect enemy to points
+ * Code works well, but the questions are randomized only for f button.
+ 3/6: Creating a health bar for the player.
 - 2. Connect a enemy to the prompt.
+2/29 - AI enemy is already created, using state([]), now I have to work on the prompt.
 
 
 *
