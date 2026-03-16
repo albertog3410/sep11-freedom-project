@@ -1,243 +1,107 @@
 <script type="module">
 import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
 kaboom();
-loadSprite("sprite", "sprites/sprite.png")
+// ------------------------------------------------------------------------------------------
 
+/* Setting up Variables */
 
-
-
-
-var pHealth = 3;
+var conListQues = ["Hablar; Yo (Present Tense)", "Vivir; El (Present Tense)","Salir; Nosotras (Present Tense)","Beber; Ella (Present Tense)","Pintar; Ustedes (Present Tense)"];
+var conListAns = ["Hablo","Vive","Salimos","Bebe","Pintan"]
+console.log(conListQues);
+var movSpeed = 500;
+setGravity(1000);
 
 add([
-text("Points:" + " " + pHealth + "      " +  "Press F to answer questions and earn points"),
+    text("Click here to play!"),
+    pos(500,250),
+    area(),
+    "title-card"
 ])
+onClick("title-card", () => go("option-sect")),
 
-const player = add([
-    sprite("sprite"),  // renders as a sprite
-    pos(80, 80),    // position in world
-    area(),          // has a collider
-    body(),          // responds to physics and gravity
-    scale(0.2),
-    health(3),
-])
+scene("option-sect",() => {
+    add([
+        text("Vocabulary"),
+        pos(250,250),
+        area(),
+        "vocab"
+    ])
 
+    add([
+        text("Conjugation"),
+        pos(800,250),
+        area(),
+        "conjugation"
+    ])
 
+    onClick("vocab", () => go("plat-one"));
 
-onKeyPress("space", () => {
-   if (player.isGrounded()) {
- player.jump(800);
-   }
+scene("plat-one",() => {
+/* Necessary Sprites */
+
+ loadSprite("cursor", "/project-images/cursor.png");
+ loadBean()
+
+ add([
+    sprite("bean"),
+    scale(.75),
+    area(),
+    body(),
+    pos(1000,100),
+    "enemy"
+ ])
+
+ var cursSprite = add([
+        sprite("cursor"),
+        scale(.10),
+        area(),
+        body(),
+        pos(0,100),
+
+/* Platform */
+
+    ])
+    add([
+      rect(width(), 48),
+      pos(0,height() - 48),
+      area(),
+      body({isStatic: true}),
+    ])
+
+    /* Moves for the sprite */
+
+    onKeyDown("left",() => {
+        cursSprite.move(-movSpeed,0);
+    })
+
+    onKeyDown("right",() => {
+        cursSprite.move(movSpeed,0);
+    })
+
+    onKeyDown("space",() => {
+        if(cursSprite.isGrounded()) {
+          cursSprite.jump();
+        }
+    })
+
+cursSprite.onCollide("enemy",() => {
+    go("test-page");
+    })
 })
 
-
-onKeyDown("left", () => {
-	// .move() is provided by pos() component, move by pixels per second
-	player.move(-SPEED, 0)
-})
-const SPEED = 500
-
-onKeyDown("right", () => {
-	player.move(SPEED, 0)
-})
-onKeyDown("up", () => {
-	player.move(0, -SPEED)
-})
-
-onKeyDown("down", () => {
-	player.move(0, SPEED)
-})
-
-
-
-
-var foodQuest = ["What is the most popular food in the world?", "what fruit is claimed to be a berry but ultimately isn't?", "What food is commonly eaten in Japan?"];
-
-
-
-onKeyPress("f", () => {
-var randomQuest = Math.floor(Math.random() * (3));
-if (randomQuest == 0) {
-  var ansZero = prompt(foodQuest[0]);
-    if (ansZero === "rice" || ansZero === "Rice") {
-        alert("That's Correct!");
-       pHealth += 1;
+    scene("test-page",() => {
+       var quesNum = randi(0,4);
+       var ques = prompt(conListQues[quesNum]);
+        if(ques == conListAns[quesNum]) {
+        console.log("That's correct!");
     } else {
-        alert(ansZero + " is not the correct answer.. Sorry!");
-        pHealth -= 1;
+        console.log("Study Harder Bozo.");
+        go("plat-one");
     }
-
-
-}
-
-else if (randomQuest == 1) {
-    var ansOne = prompt(foodQuest[1]);
-      if (ansOne === "strawberry" || ansOne === "Strawberry") {
-          alert("That's Correct!");
-       pHealth += 1;
-      } else {
-          alert(ansOne + " is not the correct answer.. Sorry!");
-        pHealth -= 1;
-      }
-}
-
-
-    var ansTwo = prompt(foodQuest[2]);
-      if (ansTwo === "ramen" || ansTwo === "Ramen") {
-         alert("That's Correct!");
-       pHealth = pHealth + 1;
-      } else {
-        alert(ansTwo + " is not the correct answer.. Sorry!");
-        pHealth = pHealth--;
-      }
+    })
 
 
 })
 
-// onKeyPress("c", () => {
-// alert("Now loading a new scene..");
-// console.log("But why?");
-// go("test-sub");
-//     })
-
-// loadSprite("marina", "marina-sprite.png"),
-// const spriteMarina = add([
-//     sprite("marina"),
-//     pos(80,50),
-//     scale(.75),
-//     area(),
-//     body(),
-//     ])
-
-// scene("test-sub",() => {
-//    setGravity(1300),
-
-//     add([
-//         rect(width(), 48),
-//         pos(0, height()-48),
-//     ])
-// })
-
-// setGravity(1300);
-
-//  loadSprite("marina", "marina-sprite.png");
-// add([
-// //     sprite("marina"),
-// //     pos(80,50),
-// //     scale(.5),
-// //     rotate(180),
-// //     color(25,25,25),
-// // ]);
-
-
-// const spriteMarina = add([
-//     sprite("marina"),
-//     pos(80,50),
-//     scale(.75),
-//     area(),
-//     body(),
-// ])
-
-// // .jump() when "space" key is pressed
-
-// onKeyPress("space", () => {
-//     if (spriteMarina.isGrounded()) {
-//     spriteMarina.jump()
-//     }
-// })
-
-// const moveSpeed = 500;
-// onKeyDown("right", () => {
-
-//     spriteMarina.move(moveSpeed,0)
-// })
-// onKeyDown("left", () => {
-
-//     spriteMarina.move(-moveSpeed,0)
-// })
-// add([
-//     rect(width(), 48),
-//     pos(0, height() - 48),
-//     outline(2),
-//     area(),
-//     body({ isStatic: true }),
-//     color(127, 200, 225),
-// ])
-
-//  function spawnTree() {
-
-//         // add tree obj
-//         add([
-//             rect(48, rand(32, 96)),
-//             area(),
-//             outline(4),
-//             pos(width(), height() - 48),
-//             anchor("botleft"),
-//             color(255, 180, 255),
-//             move(LEFT, 300),
-//             "tree",
-//         ]);
-
-//         // wait a random amount of time to spawn next tree
-//         wait(rand(1, 2), spawnTree);
-
-//     }
-
-//     // start spawning trees
-//     spawnTree();
-
-// })
-
-// spriteMarina.onCollide("tree", () => {
-//     addKaboom(spriteMarina.pos);
-//     shake();
-//     // lives--;
-//     go("lose");
-
-// scene("game", () => {
-//     add([
-//         sprite("Marina"),
-//     ])
-// })
-
-// scene("lose", () => {
-//     add([
-//         text("GAME OVER!"),
-//         pos(center()),
-//         anchor("center"),
-//     ])
-
-// //  add([
-// //         text(score),
-// //         pos(width() / 2, height() / 2 + 80),
-// //         scale(2),
-// //         anchor("center"),
-// //     ]);
-// });
-
-// })
-
-// let score = 0;
-// const scoreLabel = add([
-//     text(score),
-//     pos(24,24),
-// ])
-
-// // let lives = 3;
-// // const liveCount = add([
-// //     text(lives);
-// //     pos(34,24);
-// // ])
-// onUpdate(() => {
-//     score++;
-//      scoreLabel.text = score;
-// // if(lives === 0) {
-// //      scene("lose");
-// // }
-// })
-
-// //  onUpdate(() => {
-// //      liveCount.text = lives;
-// //  })
 
 </script>
