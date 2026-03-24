@@ -105,7 +105,6 @@ enemy.onStateUpdate("move", () => {
 	enemy.move(dir.scale(ENEMY_SPEED))
 })
 
-// Taking a bullet makes us disappear
 onKeyDown("left", () => {
 	// .move() is provided by pos() component, move by pixels per second
 	player.move(-SPEED, 0)

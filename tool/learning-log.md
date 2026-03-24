@@ -163,7 +163,7 @@ onKeyPress("space", () => {
  3/6: Creating a health bar for the player.
 - 2. Connect a enemy to the prompt.
 2/29 - AI enemy is already created, using state([]), now I have to work on the prompt.
-
+3/14: 
 
 *
 
