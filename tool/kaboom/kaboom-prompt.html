@@ -11,8 +11,7 @@ console.log(conListQues);
 var vocabListQues = ["Language", "Escuela", "Night", "Trabajando"];
 var vocabListAns = ["Idioma", "School", "Noche", "Working"]
 var movSpeed = 500;
-// var enemSpeed = 400;
-setGravity(1000);
+setGravity(1000); //
 
 add([
     text("Click here to play!"),
@@ -74,44 +73,44 @@ var checkpoint = add([
     body(),
     pos(1000,100),
     "enemy",
-state("move", [ "idle", "attack", "move" ]),
+state("move"),
  ])
 
-enemy.onStateEnter("idle", async () => {
-	await wait(0.5)
-	enemy.enterState("attack")
-})
+// enemy.onStateEnter("idle", async () => {
+// 	await wait(0.5)
+// 	enemy.enterState("attack")
+// })
 
-enemy.onStateEnter("idle", async () => {
-	await wait(0.5)
-	enemy.enterState("attack")
-})
+// enemy.onStateEnter("idle", async () => {
+// 	await wait(0.5)
+// 	enemy.enterState("attack")
+// })
 
-// When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
-enemy.onStateEnter("attack", async () => {
+// // When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
+// enemy.onStateEnter("attack", async () => {
 
-	// Don't do anything if player doesn't exist anymore
-	if (cursSprite.exists()) {
+// 	// Don't do anything if player doesn't exist anymore
+// 	if (cursSprite.exists()) {
 
-		const dir = cursSprite.pos.sub(enemy.pos).unit()
+// 		const dir = cursSprite.pos.sub(enemy.pos).unit()
 
-		add([
-			pos(enemy.pos),
-			move(dir, BULLET_SPEED),
-			rect(12, 12),
-			area(),
-			offscreen({ destroy: true }),
-			anchor("center"),
-			color(BLUE),
-			"bullet",
-		])
+// 		add([
+// 			pos(enemy.pos),
+// 			move(dir, BULLET_SPEED),
+// 			rect(12, 12),
+// 			area(),
+// 			offscreen({ destroy: true }),
+// 			anchor("center"),
+// 			color(BLUE),
+// 			"bullet",
+// 		])
 
-	}
+// 	}
 
-	await wait(1)
-	enemy.enterState("move")
+// 	await wait(1)
+// 	enemy.enterState("move")
 
-})
+// })
 
 enemy.onStateEnter("move", async () => {
 	await wait(2)
@@ -180,10 +179,12 @@ enemy.onStateUpdate("move", () => {
         }
     })
 
-    cursSprite.onCollide("bullet",() => {
+
+    // if cursSprite gets attacked
+    cursSprite.onCollide("enemy",() => {
         go("status-con");
         })
-
+// if cursSprite gets to portal
     cursSprite.onCollide("checkpoint",() => {
         alert("Let's test your knowledge!");
         go("check-point-con");
