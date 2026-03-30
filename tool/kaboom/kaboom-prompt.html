@@ -42,18 +42,13 @@ scene("option-sect",() => {
 scene("plat-one-con",() => {
 /* Necessary Sprites */
 
- loadSprite("cursor", "/project-images/cursor.png"); // Player Sprite (Temporary)
- loadSprite("checkpoint", "/project-images/checkpoint.png"); // Gateway to Levels
+ loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
+ loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
  loadBean()
 
- add([
-    sprite("bean"),
-    scale(.75),
-    area(),
-    body(),
-    pos(1000,100),
-    "enemy"
- ])
+
+const ENEMY_SPEED = 500;
+const BULLET_SPEED = 800;
 
  var cursSprite = add([
         sprite("cursor"),
@@ -71,6 +66,80 @@ var checkpoint = add([
     pos(1100,100),
     "checkpoint"
 ])
+
+ const enemy = add([
+    sprite("bean"),
+    scale(.75),
+    area(),
+    body(),
+    pos(1000,100),
+    "enemy",
+state("move", [ "idle", "attack", "move" ]),
+ ])
+
+enemy.onStateEnter("idle", async () => {
+	await wait(0.5)
+	enemy.enterState("attack")
+})
+
+enemy.onStateEnter("idle", async () => {
+	await wait(0.5)
+	enemy.enterState("attack")
+})
+
+// When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
+enemy.onStateEnter("attack", async () => {
+
+	// Don't do anything if player doesn't exist anymore
+	if (cursSprite.exists()) {
+
+		const dir = cursSprite.pos.sub(enemy.pos).unit()
+
+		add([
+			pos(enemy.pos),
+			move(dir, BULLET_SPEED),
+			rect(12, 12),
+			area(),
+			offscreen({ destroy: true }),
+			anchor("center"),
+			color(BLUE),
+			"bullet",
+		])
+
+	}
+
+	await wait(1)
+	enemy.enterState("move")
+
+})
+
+enemy.onStateEnter("move", async () => {
+	await wait(2)
+	enemy.enterState("idle")
+})
+
+// Like .onUpdate() which runs every frame, but only runs when the current state is "move"
+// Here we move towards the player every frame if the current state is "move"
+enemy.onStateUpdate("move", () => {
+	if (!cursSprite.exists()) return
+	const dir = cursSprite.pos.sub(enemy.pos).unit()
+	enemy.move(dir.scale(ENEMY_SPEED))
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Platforms*/
 
@@ -111,7 +180,7 @@ var checkpoint = add([
         }
     })
 
-    cursSprite.onCollide("enemy",() => {
+    cursSprite.onCollide("bullet",() => {
         go("status-con");
         })
 
