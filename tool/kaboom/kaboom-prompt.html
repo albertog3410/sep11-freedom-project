@@ -47,7 +47,7 @@ scene("plat-one-con",() => {
 
 
 const ENEMY_SPEED = 500;
-const BULLET_SPEED = 800;
+const BULLET_SPEED = 800
 
  var cursSprite = add([
         sprite("cursor"),
@@ -112,10 +112,10 @@ state("move"),
 
 // })
 
-enemy.onStateEnter("move", async () => {
-	await wait(2)
-	enemy.enterState("idle")
-})
+// enemy.onStateEnter("move", async () => {
+// 	await wait(0)
+// 	enemy.enterState("idle")
+// })
 
 // Like .onUpdate() which runs every frame, but only runs when the current state is "move"
 // Here we move towards the player every frame if the current state is "move"
@@ -180,7 +180,7 @@ enemy.onStateUpdate("move", () => {
     })
 
 
-    // if cursSprite gets attacked
+    // if cursSprite touches enemy
     cursSprite.onCollide("enemy",() => {
         go("status-con");
         })
