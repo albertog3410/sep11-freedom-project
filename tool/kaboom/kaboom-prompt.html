@@ -132,14 +132,6 @@ enemy.onStateUpdate("move", () => {
 
 
 
-
-
-
-
-
-
-
-
 /* Platforms*/
 
     add([
@@ -201,7 +193,7 @@ enemy.onStateUpdate("move", () => {
 
     } else {
         alert("Study Harder Bozo.");
-        go("plat-one-con");
+        go("lose"); // lose
     }
     })
 
@@ -213,10 +205,16 @@ enemy.onStateUpdate("move", () => {
         go("plat-one-con");
           } else {
         alert("You'll need to try again..");
-        go("plat-one-con");
+        go("lose"); // lose
     }
 
     })
+scene("lose", () => {
+	add([
+		text("You Lose"),
+	])
+	onKeyPress(() => go("plat-one-con"))
+})
 
 
 
