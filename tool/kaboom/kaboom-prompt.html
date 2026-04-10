@@ -338,6 +338,18 @@ enemy.onStateUpdate("move", () => {
         }
     })
 
+     // if cursSprite touches enemy
+    cursSprite.onCollide("enemy",() => {
+        go("status-voc");
+        })
+// if cursSprite gets to portal
+    cursSprite.onCollide("checkpoint",() => {
+        alert("Let's test your knowledge!");
+        go("check-point-voc");
+        })
+  })
+
+ scene("status-voc",() => {
         var quesNumVoc = randi(0,8);
         var quesTwo = prompt(vocabListQues[quesNumVoc]);
         if(quesTwo == vocabListAns[quesNumVoc]) {
@@ -347,7 +359,18 @@ enemy.onStateUpdate("move", () => {
             alert("Doesn't work.. Sorry!");
             go("lose-voc");
         }
+    })
 
+    scene("check-point-voc",() => {
+         var quesNumVoc = randi(0,8);
+        var quesTwo = prompt(vocabListQues[quesNumVoc]);
+        if(quesTwo == vocabListAns[quesNumVoc]) {
+            alert("Good job! You're ready to move on.");
+            go("plat-one-voc");
+        } else {
+            alert("Doesn't work.. Sorry!");
+            go("lose-voc");
+        }
     })
 
 scene("lose-voc", () => {
