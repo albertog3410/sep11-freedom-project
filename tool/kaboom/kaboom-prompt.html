@@ -218,6 +218,7 @@ scene("plat-one-voc",() => {
         var quesTwo = prompt(vocabListQues[quesNumVoc]);
         if(quesTwo == vocabListAns[quesNumVoc]) {
             alert("Good job!");
+            go("plat-one-voc");
         } else {
             alert("Doesn't work.. Sorry!");
         }
