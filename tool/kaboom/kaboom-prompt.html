@@ -310,7 +310,14 @@ enemy.onStateUpdate("move", () => {
 
      add([
         rect(100,100),
-        pos(600,450),
+        pos(500,450),
+        area(),
+        body({isStatic: true}),
+     ])
+
+     add([
+        rect(100,100),
+        pos(600,500),
         area(),
         body({isStatic: true}),
      ])
