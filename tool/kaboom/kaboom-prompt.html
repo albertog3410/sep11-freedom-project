@@ -202,11 +202,11 @@ enemy.onStateUpdate("move", () => {
         go("plat-one-con");
           } else {
         alert("You'll need to try again..");
-        go("lose"); // lose
+        go("lose-con"); // lose
     }
 
     })
-scene("lose", () => {
+scene("lose-con", () => {
 	add([
 		text("You Lose"),
 	])
@@ -221,10 +221,16 @@ scene("plat-one-voc",() => {
             go("plat-one-voc");
         } else {
             alert("Doesn't work.. Sorry!");
+            go("lose-voc");
         }
 
     })
 
-
+scene("lose-voc", () => {
+	add([
+		text("You Lose"),
+	])
+	onKeyPress(() => go("plat-one-voc"))
+})
 
 </script>
