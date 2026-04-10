@@ -11,6 +11,7 @@ console.log(conListQues);
 var vocabListQues = ["Language", "Escuela", "Night", "Trabajando", "To Study", "Maletas", "To Travel", "Communidad", "Future"];
 var vocabListAns = ["Idioma", "School", "Noche", "Working", "Estudiar", "Suitcases", "Viajar", "Community", "Futuro"];
 console.log(vocabListQues);
+var movSpeed = 500;
 setGravity(1000); //
 
 add([
@@ -22,6 +23,8 @@ add([
 onClick("title-card", () => go("option-sect")),
 
 scene("option-sect",() => {
+    alert("Before continuing, please note that all answers should be in uppercase. Thank you!");
+
     add([
         text("Conjugation"),
         pos(250,250),
@@ -37,6 +40,7 @@ scene("option-sect",() => {
     ])
 
     onClick("conjugation", () => go("plat-one-con"));
+    onClick("vocab", () => go("plat-one-voc"));
 
 scene("plat-one-con",() => {
 /* Necessary Sprites */
@@ -198,17 +202,35 @@ enemy.onStateUpdate("move", () => {
         go("plat-one-con");
           } else {
         alert("You'll need to try again..");
-        go("lose"); // lose
+        go("lose-con"); // lose
     }
 
     })
-scene("lose", () => {
+scene("lose-con", () => {
 	add([
 		text("You Lose"),
 	])
 	onKeyPress(() => go("plat-one-con"))
 })
 
+scene("plat-one-voc",() => {
+        var quesNumVoc = randi(0,8);
+        var quesTwo = prompt(vocabListQues[quesNumVoc]);
+        if(quesTwo == vocabListAns[quesNumVoc]) {
+            alert("Good job!");
+            go("plat-one-voc");
+        } else {
+            alert("Doesn't work.. Sorry!");
+            go("lose-voc");
+        }
 
+    })
+
+scene("lose-voc", () => {
+	add([
+		text("You Lose"),
+	])
+	onKeyPress(() => go("plat-one-voc"))
+})
 
 </script>
