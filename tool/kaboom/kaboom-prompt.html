@@ -245,7 +245,7 @@ var checkpoint = add([
     scale(.75),
     area(),
     body(),
-    pos(1000,100),
+    pos(1000,500),
     "enemy",
 state("move"),
  ])
@@ -317,7 +317,7 @@ enemy.onStateUpdate("move", () => {
 
      add([
         rect(100,100),
-        pos(600,300),
+        pos(700,300),
         area(),
         body({isStatic: true}),
      ])
