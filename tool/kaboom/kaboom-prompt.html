@@ -214,6 +214,130 @@ scene("lose-con", () => {
 })
 
 scene("plat-one-voc",() => {
+
+loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
+ loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
+ loadBean()
+
+
+const ENEMY_SPEED = 500;
+const BULLET_SPEED = 800;
+
+ var cursSprite = add([
+        sprite("cursor"),
+        scale(.10),
+        area(),
+        body(),
+        pos(0,100),
+ ])
+
+var checkpoint = add([
+    sprite("checkpoint"),
+    scale(.50),
+    area(),
+    body({isStatic: true}),
+    pos(1100,100),
+    "checkpoint"
+])
+
+ const enemy = add([
+    sprite("bean"),
+    scale(.75),
+    area(),
+    body(),
+    pos(1000,100),
+    "enemy",
+state("move"),
+ ])
+
+// enemy.onStateEnter("idle", async () => {
+// 	await wait(0.5)
+// 	enemy.enterState("attack")
+// })
+
+// enemy.onStateEnter("idle", async () => {
+// 	await wait(0.5)
+// 	enemy.enterState("attack")
+// })
+
+// // When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
+// enemy.onStateEnter("attack", async () => {
+
+// 	// Don't do anything if player doesn't exist anymore
+// 	if (cursSprite.exists()) {
+
+// 		const dir = cursSprite.pos.sub(enemy.pos).unit()
+
+// 		add([
+// 			pos(enemy.pos),
+// 			move(dir, BULLET_SPEED),
+// 			rect(12, 12),
+// 			area(),
+// 			offscreen({ destroy: true }),
+// 			anchor("center"),
+// 			color(BLUE),
+// 			"bullet",
+// 		])
+
+// 	}
+
+// 	await wait(1)
+// 	enemy.enterState("move")
+
+// })
+
+// enemy.onStateEnter("move", async () => {
+// 	await wait(0)
+// 	enemy.enterState("idle")
+// })
+
+// Like .onUpdate() which runs every frame, but only runs when the current state is "move"
+// Here we move towards the player every frame if the current state is "move"
+enemy.onStateUpdate("move", () => {
+	if (!cursSprite.exists()) return
+	const dir = cursSprite.pos.sub(enemy.pos).unit()
+	enemy.move(dir.scale(ENEMY_SPEED))
+})
+
+/* Platforms*/
+
+    add([
+      rect(width(), 48),
+      pos(0,height() - 48),
+      area(),
+      body({isStatic: true}),
+    ])
+
+    add([
+        rect(300,48),
+        pos(900,300),
+        area(),
+        body({isStatic: true}),
+     ])
+
+     add([
+        rect(100,100),
+        pos(600,400),
+        area(),
+        body({isStatic: true}),
+     ])
+
+    /* Moves for the sprite */
+
+    onKeyDown("left",() => {
+        cursSprite.move(-movSpeed,0);
+    })
+
+    onKeyDown("right",() => {
+        cursSprite.move(movSpeed,0);
+    })
+
+    onKeyDown("space",() => {
+        if(cursSprite.isGrounded()) {
+          cursSprite.jump();
+        }
+    })
+
         var quesNumVoc = randi(0,8);
         var quesTwo = prompt(vocabListQues[quesNumVoc]);
         if(quesTwo == vocabListAns[quesNumVoc]) {
