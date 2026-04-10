@@ -317,11 +317,17 @@ enemy.onStateUpdate("move", () => {
 
      add([
         rect(100,100),
-        pos(600,500),
+        pos(600,300),
         area(),
         body({isStatic: true}),
      ])
 
+    add([
+        rect(100,100),
+        pos(900,200),
+        area(),
+        body({isStatic: true}),
+     ])
     /* Moves for the sprite */
 
     onKeyDown("left",() => {
