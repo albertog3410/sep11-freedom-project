@@ -12,7 +12,7 @@ var vocabListQues = ["Language", "Escuela", "Night", "Trabajando", "To Study", "
 var vocabListAns = ["Idioma", "School", "Noche", "Working", "Estudiar", "Suitcases", "Viajar", "Community", "Futuro"];
 console.log(vocabListQues);
 var movSpeed = 500;
-setGravity(1000); //
+setGravity(1000); 
 
 add([
     text("Click here to play!"),
@@ -43,6 +43,7 @@ scene("option-sect",() => {
     onClick("vocab", () => go("plat-one-voc"));
 
 scene("plat-one-con",() => {
+
 /* Necessary Sprites */
 
  loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
@@ -168,12 +169,12 @@ enemy.onStateUpdate("move", () => {
         }
     })
 
+// Testing Circumstances (Conjugation).
 
-    // if cursSprite touches enemy
     cursSprite.onCollide("enemy",() => {
         go("status-con");
         })
-// if cursSprite gets to portal
+
     cursSprite.onCollide("checkpoint",() => {
         alert("Let's test your knowledge!");
         go("check-point-con");
@@ -202,7 +203,7 @@ enemy.onStateUpdate("move", () => {
         go("plat-one-con");
           } else {
         alert("You'll need to try again..");
-        go("lose-con"); // lose
+        go("lose-con");
     }
 
     })
@@ -212,6 +213,10 @@ scene("lose-con", () => {
 	])
 	onKeyPress(() => go("plat-one-con"))
 })
+
+
+
+/* Vocabulary */
 
 scene("plat-one-voc",() => {
 
@@ -344,11 +349,11 @@ enemy.onStateUpdate("move", () => {
         }
     })
 
-     // if cursSprite touches enemy
+     // Testing Circumstances (Vocabulary).
+
     cursSprite.onCollide("enemy",() => {
         go("status-voc");
         })
-// if cursSprite gets to portal
     cursSprite.onCollide("checkpoint",() => {
         alert("Let's test your knowledge!");
         go("check-point-voc");
@@ -356,7 +361,7 @@ enemy.onStateUpdate("move", () => {
   })
 
   // Vocab-Testing Scenes.
-  
+
  scene("status-voc",() => {
         var quesNumVoc = randi(0,8);
         var quesTwo = prompt(vocabListQues[quesNumVoc]);
