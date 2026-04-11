@@ -12,7 +12,7 @@ var vocabListQues = ["Language", "Escuela", "Night", "Trabajando", "To Study", "
 var vocabListAns = ["Idioma", "School", "Noche", "Working", "Estudiar", "Suitcases", "Viajar", "Community", "Futuro"];
 console.log(vocabListQues);
 var movSpeed = 500;
-setGravity(1000); //
+setGravity(1000); 
 
 add([
     text("Click here to play!"),
@@ -43,6 +43,7 @@ scene("option-sect",() => {
     onClick("vocab", () => go("plat-one-voc"));
 
 scene("plat-one-con",() => {
+
 /* Necessary Sprites */
 
  loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
@@ -168,12 +169,12 @@ enemy.onStateUpdate("move", () => {
         }
     })
 
+// Testing Circumstances (Conjugation).
 
-    // if cursSprite touches enemy
     cursSprite.onCollide("enemy",() => {
         go("status-con");
         })
-// if cursSprite gets to portal
+
     cursSprite.onCollide("checkpoint",() => {
         alert("Let's test your knowledge!");
         go("check-point-con");
@@ -190,7 +191,7 @@ enemy.onStateUpdate("move", () => {
 
     } else {
         alert("Study Harder Bozo.");
-        go("lose"); // lose
+        go("lose-con"); // lose
     }
     })
 
@@ -202,7 +203,7 @@ enemy.onStateUpdate("move", () => {
         go("plat-one-con");
           } else {
         alert("You'll need to try again..");
-        go("lose-con"); // lose
+        go("lose-con");
     }
 
     })
@@ -213,7 +214,155 @@ scene("lose-con", () => {
 	onKeyPress(() => go("plat-one-con"))
 })
 
+
+
+/* Vocabulary */
+
 scene("plat-one-voc",() => {
+
+loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
+ loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
+ loadBean()
+
+
+const ENEMY_SPEED = 500;
+const BULLET_SPEED = 800;
+
+ var cursSprite = add([
+        sprite("cursor"),
+        scale(.10),
+        area(),
+        body(),
+        pos(0,100),
+ ])
+
+var checkpoint = add([
+    sprite("checkpoint"),
+    scale(.50),
+    area(),
+    body({isStatic: true}),
+    pos(1100,100),
+    "checkpoint"
+])
+
+ const enemy = add([
+    sprite("bean"),
+    scale(.75),
+    area(),
+    body(),
+    pos(1000,500),
+    "enemy",
+state("move"),
+ ])
+
+// enemy.onStateEnter("idle", async () => {
+// 	await wait(0.5)
+// 	enemy.enterState("attack")
+// })
+
+// enemy.onStateEnter("idle", async () => {
+// 	await wait(0.5)
+// 	enemy.enterState("attack")
+// })
+
+// // When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
+// enemy.onStateEnter("attack", async () => {
+
+// 	// Don't do anything if player doesn't exist anymore
+// 	if (cursSprite.exists()) {
+
+// 		const dir = cursSprite.pos.sub(enemy.pos).unit()
+
+// 		add([
+// 			pos(enemy.pos),
+// 			move(dir, BULLET_SPEED),
+// 			rect(12, 12),
+// 			area(),
+// 			offscreen({ destroy: true }),
+// 			anchor("center"),
+// 			color(BLUE),
+// 			"bullet",
+// 		])
+
+// 	}
+
+// 	await wait(1)
+// 	enemy.enterState("move")
+
+// })
+
+// enemy.onStateEnter("move", async () => {
+// 	await wait(0)
+// 	enemy.enterState("idle")
+// })
+
+// Like .onUpdate() which runs every frame, but only runs when the current state is "move"
+// Here we move towards the player every frame if the current state is "move"
+enemy.onStateUpdate("move", () => {
+	if (!cursSprite.exists()) return
+	const dir = cursSprite.pos.sub(enemy.pos).unit()
+	enemy.move(dir.scale(ENEMY_SPEED))
+})
+
+/* Platforms*/
+
+    add([
+      rect(width(), 48),
+      pos(0,height() - 48),
+      area(),
+      body({isStatic: true}),
+    ])
+
+     add([
+        rect(100,100),
+        pos(500,450),
+        area(),
+        body({isStatic: true}),
+     ])
+
+     add([
+        rect(100,100),
+        pos(700,300),
+        area(),
+        body({isStatic: true}),
+     ])
+
+    add([
+        rect(100,100),
+        pos(900,200),
+        area(),
+        body({isStatic: true}),
+     ])
+    /* Moves for the sprite */
+
+    onKeyDown("left",() => {
+        cursSprite.move(-movSpeed,0);
+    })
+
+    onKeyDown("right",() => {
+        cursSprite.move(movSpeed,0);
+    })
+
+    onKeyDown("space",() => {
+        if(cursSprite.isGrounded()) {
+          cursSprite.jump();
+        }
+    })
+
+     // Testing Circumstances (Vocabulary).
+
+    cursSprite.onCollide("enemy",() => {
+        go("status-voc");
+        })
+    cursSprite.onCollide("checkpoint",() => {
+        alert("Let's test your knowledge!");
+        go("check-point-voc");
+        })
+  })
+
+  // Vocab-Testing Scenes.
+
+ scene("status-voc",() => {
         var quesNumVoc = randi(0,8);
         var quesTwo = prompt(vocabListQues[quesNumVoc]);
         if(quesTwo == vocabListAns[quesNumVoc]) {
@@ -223,7 +372,18 @@ scene("plat-one-voc",() => {
             alert("Doesn't work.. Sorry!");
             go("lose-voc");
         }
+    })
 
+    scene("check-point-voc",() => {
+         var quesNumVoc = randi(0,8);
+        var quesTwo = prompt(vocabListQues[quesNumVoc]);
+        if(quesTwo == vocabListAns[quesNumVoc]) {
+            alert("Good job! You're ready to move on.");
+            go("plat-one-voc");
+        } else {
+            alert("Doesn't work.. Sorry!");
+            go("lose-voc");
+        }
     })
 
 scene("lose-voc", () => {
