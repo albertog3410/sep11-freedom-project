@@ -12,7 +12,7 @@ var vocabListQues = ["Language", "Escuela", "Night", "Trabajando", "To Study", "
 var vocabListAns = ["Idioma", "School", "Noche", "Working", "Estudiar", "Suitcases", "Viajar", "Community", "Futuro"];
 console.log(vocabListQues);
 var movSpeed = 500;
-setGravity(1000); 
+setGravity(1000);
 
 add([
     text("Click here to play!"),
@@ -51,6 +51,7 @@ scene("plat-one-con",() => {
  loadBean()
 
 
+
 const ENEMY_SPEED = 500;
 const BULLET_SPEED = 800;
 const movSpeed = 400;
@@ -60,6 +61,7 @@ const movSpeed = 400;
         area(),
         body(),
         pos(0,100),
+        "cursSprite"
  ])
 
 var checkpoint = add([
@@ -81,49 +83,6 @@ var checkpoint = add([
 state("move"),
  ])
 
-// enemy.onStateEnter("idle", async () => {
-// 	await wait(0.5)
-// 	enemy.enterState("attack")
-// })
-
-// enemy.onStateEnter("idle", async () => {
-// 	await wait(0.5)
-// 	enemy.enterState("attack")
-// })
-
-// // When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
-// enemy.onStateEnter("attack", async () => {
-
-// 	// Don't do anything if player doesn't exist anymore
-// 	if (cursSprite.exists()) {
-
-// 		const dir = cursSprite.pos.sub(enemy.pos).unit()
-
-// 		add([
-// 			pos(enemy.pos),
-// 			move(dir, BULLET_SPEED),
-// 			rect(12, 12),
-// 			area(),
-// 			offscreen({ destroy: true }),
-// 			anchor("center"),
-// 			color(BLUE),
-// 			"bullet",
-// 		])
-
-// 	}
-
-// 	await wait(1)
-// 	enemy.enterState("move")
-
-// })
-
-// enemy.onStateEnter("move", async () => {
-// 	await wait(0)
-// 	enemy.enterState("idle")
-// })
-
-// Like .onUpdate() which runs every frame, but only runs when the current state is "move"
-// Here we move towards the player every frame if the current state is "move"
 enemy.onStateUpdate("move", () => {
 	if (!cursSprite.exists()) return
 	const dir = cursSprite.pos.sub(enemy.pos).unit()
@@ -188,10 +147,10 @@ enemy.onStateUpdate("move", () => {
         if(ques == conListAns[quesNum]) {
         alert("That's correct!");
         go("plat-one-con");
-
     } else {
         alert("Study Harder Bozo.");
-        go("lose-con"); // lose
+        health--;
+ go("lose-con");
     }
     })
 
@@ -380,8 +339,7 @@ enemy.onStateUpdate("move", () => {
         if(quesTwo == vocabListAns[quesNumVoc]) {
             alert("Good job! You're ready to move on.");
             go("plat-one-voc");
-        } else {
-            alert("Doesn't work.. Sorry!");
+         alert("Doesn't work.. Sorry!");
             go("lose-voc");
         }
     })
@@ -391,6 +349,7 @@ scene("lose-voc", () => {
 		text("You Lose"),
 	])
 	onKeyPress(() => go("plat-one-voc"))
+
 })
 
 </script>
