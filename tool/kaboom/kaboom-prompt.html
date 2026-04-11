@@ -297,6 +297,7 @@ enemy.onStateUpdate("move", () => {
         if(quesTwo == vocabListAns[quesNumVoc]) {
             alert("Good job! You're ready to move on.");
             go("plat-one-voc");
+        }else{
          alert("Doesn't work.. Sorry!");
             go("lose-voc");
         }
