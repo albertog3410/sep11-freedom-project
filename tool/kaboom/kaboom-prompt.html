@@ -66,7 +66,7 @@ const movSpeed = 400;
 
 var checkpoint = add([
     sprite("checkpoint"),
-    scale(.50),
+    scale(.20),
     area(),
     body({isStatic: true}),
     pos(1100,100),
@@ -149,7 +149,6 @@ enemy.onStateUpdate("move", () => {
         go("plat-one-con");
     } else {
         alert("Study Harder Bozo.");
-        health--;
  go("lose-con");
     }
     })
@@ -163,6 +162,7 @@ enemy.onStateUpdate("move", () => {
           } else {
         alert("You'll need to try again..");
         go("lose-con");
+        cursSprite.pos(0,100)
     }
 
     })
