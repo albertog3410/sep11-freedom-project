@@ -214,49 +214,7 @@ var checkpoint = add([
 state("move"),
  ])
 
-// enemy.onStateEnter("idle", async () => {
-// 	await wait(0.5)
-// 	enemy.enterState("attack")
-// })
 
-// enemy.onStateEnter("idle", async () => {
-// 	await wait(0.5)
-// 	enemy.enterState("attack")
-// })
-
-// // When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
-// enemy.onStateEnter("attack", async () => {
-
-// 	// Don't do anything if player doesn't exist anymore
-// 	if (cursSprite.exists()) {
-
-// 		const dir = cursSprite.pos.sub(enemy.pos).unit()
-
-// 		add([
-// 			pos(enemy.pos),
-// 			move(dir, BULLET_SPEED),
-// 			rect(12, 12),
-// 			area(),
-// 			offscreen({ destroy: true }),
-// 			anchor("center"),
-// 			color(BLUE),
-// 			"bullet",
-// 		])
-
-// 	}
-
-// 	await wait(1)
-// 	enemy.enterState("move")
-
-// })
-
-// enemy.onStateEnter("move", async () => {
-// 	await wait(0)
-// 	enemy.enterState("idle")
-// })
-
-// Like .onUpdate() which runs every frame, but only runs when the current state is "move"
-// Here we move towards the player every frame if the current state is "move"
 enemy.onStateUpdate("move", () => {
 	if (!cursSprite.exists()) return
 	const dir = cursSprite.pos.sub(enemy.pos).unit()
