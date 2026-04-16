@@ -150,8 +150,6 @@ enemy.onStateUpdate("move", () => {
     } else {
         alert("Study Harder Bozo.");
         go("lose-con");
-        player.pos = vec2(100,100)
-        player.vel = vec2(0,0)
 
     }
     })
@@ -165,7 +163,6 @@ enemy.onStateUpdate("move", () => {
           } else {
         alert("You'll need to try again..");
         go("lose-con");
-        player.pos = vec2(100,100)
     }
 
     })
