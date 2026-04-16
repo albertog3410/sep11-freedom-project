@@ -47,12 +47,12 @@ scene("lose-con", () => {
 })
 ```
 
-### Issues That Were Debugged
+### Issues That Were Debugged/Still Need to Work on
 
 
 
-
-
+### EDP
+So far in the EDP(Engineering Design Process), I am at step six which is to **Test and Evaluate the Prototype**. I say this because  me and my partner had already most of the MVP requirements finished. All we had to do was make sure that the game was working properly and debug if necessary. 
 
 ###### [MVP Product](https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html)
 
