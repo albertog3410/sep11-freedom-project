@@ -47,9 +47,14 @@ scene("lose-con", () => {
 })
 ```
 
-###### [MVP Product](https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html)
 ### Issues That Were Debugged
 
+
+
+
+
+
+###### [MVP Product](https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html)
 
 [Previous](entry04.md) | [Next](entry06.md)
 
