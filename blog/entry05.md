@@ -2,7 +2,7 @@
 ##### 4/16/26
 
 ### Where I am at Now
-Throughout the spring break, me and my partner Brianna are planning on moving towards creating our Freedom Project Spanish Platformer Game. At this point, we have just finished our **MVP(Minimum Viable Product)** and are soon going to move on to creating our full project. While I was not able to create a working healthbar, I managed to make it so that when the AI moves and collides with the player's sprite, a random question automatically appears. Below, I explain how we finished the MVP, new concepts learned while doing it and what problems still remain. 
+Throughout the spring break, me and my partner Brianna are planning on moving towards creating our Freedom Project Spanish Platformer Game. At this point, we have just finished our **MVP(Minimum Viable Product)** and are soon going to move on to creating our full project using [Kaboom.js](https://kaboomjs.com/). While I was not able to create a working healthbar, I managed to make it so that when the AI moves and collides with the player's sprite, a random question automatically appears. Below, I explain how we finished the MVP, new concepts learned while doing it and what problems still remain. 
 
 ### Enemy AI Attachments
 To start off with what I had done, I used `scenes` that Brianna created in order to shift the screen towards a random prompted question and made it so that every time that the player's sprite(`cursSprite`), collided with the AI(`enemy`), it asks you a random question from an array. If you get the question wrong, you arrive at a loss `scene`, while if you get the question right, the game just normally restarts the scene. 
@@ -63,11 +63,14 @@ While everything else in the code was working just fine I noticed that after ans
 
 ### EDP
 So far in the EDP(Engineering Design Process), I am at step six which is to **Test and Evaluate the Prototype**. I say this because  me and my partner had already most of the MVP requirements finished. All we had to do was make sure that the game was working properly and debug if necessary. 
+
 ### Skills learned
+I feel like I am growing in **Time Management** because it was and still is usually hard to find the time to just sit down and work with kaboom as I am working through a project such as this. Now as I was working towards finishing the MVP, I am starting to set time for completing the tasks that I need to do so that me and my partner can find the most effective way of building our project. Another skill that I do feel like I am improving in is **Debugging**. I say this because having the time to sit down and break apart what each piece of code does makes it easier to find the best solution to any glitches in the game. 
 
+### Next Steps
+What I plan on doing next is figuring out how to fix the sprite's movement issue with Brianna. This way, we can both figure out a solution and have a fully working concept of how we can make the project. Overall I'm enjoying working on a project such as this one and am eager to learn more!
 
-
-###### [Here is the Final Product for our MVP](https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html)
+#### [Here is the Final Product for Our MVP](https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html)
 
 [Previous](entry04.md) | [Next](entry06.md)
 
