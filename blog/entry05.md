@@ -47,14 +47,27 @@ scene("lose-con", () => {
 })
 ```
 
-### Issues That Were Debugged/Still Need to Work on
+### Issues That Were Debugged
+When I first tested the levels I noticed that I would get the questions wrong, even if they were right. For instance, when a question asked `Hablar; Yo (Present Tense)`, hablo would not be the correct answer. I asked Brianna about this and she said that the correct answers(words in array called `conListQues`), were mainly uppcased. Due to this, I had to give an `alert()` saying that the player must answer any questions with the fist letter being uppcased so that this misunderstanding won't occur in the future. 
+```js
+var conListQues = ["Hablar; Yo (Present Tense)", "Vivir; El (Present Tense)","Salir; Nosotras (Present Tense)","Beber; Ella (Present Tense)","Pintar; Ustedes (Present Tense)", "Comer; Ellas (Present Tense)", "Tener; Tu (Present Tense)", "Escuchar; Yo (Present Tense)", "Ser; Nosotros (Present Tense)", "Hacer; Usted (Present Tense)", "Ir; Ellos (Present Tense)"];
+var conListAns = ["Hablo","Vive","Salimos","Bebe","Pintan", "Comen", "Tienes", "Escucho", "Somos", "Hace", "Van"];
+console.log(conListQues);
+```
+
+### Issue That Still Needs Work
+While everything else in the code was working just fine I noticed that after answering an question, the sprite keeps moving on its own. Making it very hard to control the sprite and play the game without the sprite going off screen. Due to my partner being on vacation during the Spring break, we did not have much time to work on debugging the issue. 
+
 
 
 
 ### EDP
 So far in the EDP(Engineering Design Process), I am at step six which is to **Test and Evaluate the Prototype**. I say this because  me and my partner had already most of the MVP requirements finished. All we had to do was make sure that the game was working properly and debug if necessary. 
+### Skills learned
 
-###### [MVP Product](https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html)
+
+
+###### [Here is the Final Product for our MVP](https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html)
 
 [Previous](entry04.md) | [Next](entry06.md)
 
