@@ -61,7 +61,7 @@ const movSpeed = 400;
         area(),
         body(),
         pos(0,100),
-        "cursSprite"
+        "player"
  ])
 
 var checkpoint = add([
@@ -149,7 +149,8 @@ enemy.onStateUpdate("move", () => {
         go("plat-one-con");
     } else {
         alert("Study Harder Bozo.");
- go("lose-con");
+        go("lose-con");
+
     }
     })
 
@@ -162,7 +163,6 @@ enemy.onStateUpdate("move", () => {
           } else {
         alert("You'll need to try again..");
         go("lose-con");
-        cursSprite.pos(0,100)
     }
 
     })
@@ -182,6 +182,19 @@ scene("plat-one-voc",() => {
 loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
  loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
  loadBean()
+ onKeyDown("left",() => {
+        cursSprite.move(-movSpeed,0);
+    })
+
+    onKeyDown("right",() => {
+        cursSprite.move(movSpeed,0);
+    })
+
+    onKeyDown("space",() => {
+        if(cursSprite.isGrounded()) {
+          cursSprite.jump();
+        }
+    })
 
 
 const ENEMY_SPEED = 500;
@@ -250,21 +263,7 @@ enemy.onStateUpdate("move", () => {
         area(),
         body({isStatic: true}),
      ])
-    /* Moves for the sprite */
 
-    onKeyDown("left",() => {
-        cursSprite.move(-movSpeed,0);
-    })
-
-    onKeyDown("right",() => {
-        cursSprite.move(movSpeed,0);
-    })
-
-    onKeyDown("space",() => {
-        if(cursSprite.isGrounded()) {
-          cursSprite.jump();
-        }
-    })
 
      // Testing Circumstances (Vocabulary).
 
