@@ -26,7 +26,8 @@
 
      - [ ] Create a 'Character Select Screen' (Alberto + Bri)
        - [ ] Make custom sprites for movement (Alberto + Bri)
-     - [ ] Create the Backdrops of Levels (Bri)
+     - [ ] Create additional levels (Alberto + Bri)
+       - [ ] Create the Backdrops of Levels (Bri)
      <!-- Backdrop will be in style of SMB -->
 
 
