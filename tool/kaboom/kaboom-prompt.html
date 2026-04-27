@@ -177,6 +177,13 @@ scene("plat-two-con",() => {
  loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
  loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
  loadBean();
+
+ add([
+      rect(width(), 48),
+      pos(0,height() - 48),
+      area(),
+      body({isStatic: true}),
+ ])
 })
 
 /* Vocabulary */
