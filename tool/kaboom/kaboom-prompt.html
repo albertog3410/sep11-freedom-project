@@ -159,7 +159,7 @@ enemy.onStateUpdate("move", () => {
        var ques = prompt(conListQues[quesNum]);
         if(ques == conListAns[quesNum]) {
         alert("That's correct! You're ready to move to the next level!");
-        go("plat-two-con");
+        play("plat-two-con");
           } else {
         alert("You'll need to try again..");
         go("lose-con");
@@ -168,7 +168,7 @@ enemy.onStateUpdate("move", () => {
     })
 scene("lose-con", () => {
 	add([
-		text("You Lose"),
+		text("You Lose. Click to try again."),
 	])
 	onKeyPress(() => go("plat-one-con"))
 })
