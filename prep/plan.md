@@ -26,8 +26,12 @@
 
      - [ ] Create a 'Character Select Screen' (Alberto + Bri)
        - [ ] Make custom sprites for movement (Alberto + Bri)
-     - [ ] Create additional levels (Alberto + Bri)
+     - [ ] Create additional levels, likely 1-2 (Alberto + Bri)
        - [ ] Create the Backdrops of Levels (Bri)
+       - [ ] Include variations in enemies (Alberto)
+       - [ ] Introduce Harder Sets of Flashcards (Bri)
+     - [ ] Debug the 'Constantly Moving' Glitch (Alberto + Bri)
+     
      <!-- Backdrop will be in style of SMB -->
 
 
