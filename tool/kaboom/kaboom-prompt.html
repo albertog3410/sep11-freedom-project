@@ -55,7 +55,7 @@ scene("plat-one-con",() => {
 const ENEMY_SPEED = 500;
 const BULLET_SPEED = 800;
 const movSpeed = 400;
- var cursSprite = add([
+ const cursSprite = add([
         sprite("cursor"),
         scale(.10),
         area(),
@@ -64,7 +64,7 @@ const movSpeed = 400;
         "player"
  ])
 
-var checkpoint = add([
+const checkpoint = add([
     sprite("checkpoint"),
     scale(.20),
     area(),
@@ -145,7 +145,7 @@ enemy.onStateUpdate("move", () => {
        var quesNum = randi(0,11);
        var ques = prompt(conListQues[quesNum]);
         if(ques == conListAns[quesNum]) {
-        alert("That's correct!");
+        alert("That's correct, but try to avoid the enemy!");
         go("plat-one-con");
     } else {
         alert("Study Harder Bozo.");
@@ -159,7 +159,7 @@ enemy.onStateUpdate("move", () => {
        var ques = prompt(conListQues[quesNum]);
         if(ques == conListAns[quesNum]) {
         alert("That's correct! You're ready to move to the next level!");
-        go("plat-one-con");
+        go("plat-two-con");
           } else {
         alert("You'll need to try again..");
         go("lose-con");
@@ -173,7 +173,11 @@ scene("lose-con", () => {
 	onKeyPress(() => go("plat-one-con"))
 })
 
-
+scene("plat-two-con",() => {
+ loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
+ loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
+ loadBean();
+})
 
 /* Vocabulary */
 
