@@ -50,11 +50,8 @@ scene("plat-one-con",() => {
  loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
  loadBean()
 
-
-
-const ENEMY_SPEED = 500;
+const ENEMY_SPEED = 400;
 const BULLET_SPEED = 800;
-const movSpeed = 400;
  const cursSprite = add([
         sprite("cursor"),
         scale(.10),
@@ -159,7 +156,7 @@ enemy.onStateUpdate("move", () => {
        var ques = prompt(conListQues[quesNum]);
         if(ques == conListAns[quesNum]) {
         alert("That's correct! You're ready to move to the next level!");
-        play("plat-two-con");
+        go("plat-two-con");
           } else {
         alert("You'll need to try again..");
         go("lose-con");
@@ -208,8 +205,7 @@ loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
     })
 
 
-const ENEMY_SPEED = 500;
-const BULLET_SPEED = 800;
+const ENEMY_SPEED = 400;
 
  var cursSprite = add([
         sprite("cursor"),
@@ -306,7 +302,7 @@ enemy.onStateUpdate("move", () => {
         var quesTwo = prompt(vocabListQues[quesNumVoc]);
         if(quesTwo == vocabListAns[quesNumVoc]) {
             alert("Good job! You're ready to move on.");
-            go("plat-one-voc");
+            go("plat-two-voc");
         }else{
          alert("Doesn't work.. Sorry!");
             go("lose-voc");
