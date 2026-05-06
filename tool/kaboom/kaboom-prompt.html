@@ -18,8 +18,8 @@ console.log(vocabListQues);
 var conListQuesHar = ["Pescar; Tu (Past Tense)", "Tomar; Ella (Past Tense)", "Viajar; Nosotros (Imperfect Tense)", "Cuidar; El (Imperfect Tense)", "Querer; Yo (Future Tense)", "Buscar; Ellos (Future Tense)", "Jugar; Nosotras (Present Tense)", "Decir; Yo (Past Tense)"];
 var conListAnsHar = ["Pescaste", "Tomo", "Viajabamos", "Cuidaba", "Querre", "Buscaran", "Jugamos", "Dije"];
 console.log(conListQuesHar);
-var vocabListQuesHar = ["¿Como se dice 'Vuelos' en Ingles?", "How do you say 'To Leave' in Spanish?", "¿Como se dice 'Verano' en Ingles?", "How do you say 'Windows' in Spanish?", "¿Como se dice 'Me gusta perras.' en Ingles? Make sure to include proper punctuation."];
-var vocabListAnsHar = ["Flights", "Salir", "Summer", "Ventanas", "I like dogs."];
+var vocabListQuesHar = ["¿Como se dice 'Vuelos' en Ingles?", "How do you say 'To Leave' in Spanish?", "¿Como se dice 'Verano' en Ingles?", "How do you say 'Windows' in Spanish?", "¿Como se dice 'Me gusta perras.' en Ingles?", "How do you say 'My favorite color is purple.' in Spanish?", "¿Como se dice 'Yo necesito dinero para el restaraunte' en Ingles?", "How do you say 'I flew to Chile during Summer Break.' in Spanish?"];
+var vocabListAnsHar = ["Flights", "Salir", "Summer", "Ventanas", "I like dogs.", "My color favorito es Morado.", "I need money for the restaurant.", "Yo viaje a Chile durante el vacacion de verano"];
 console.log(vocabListQuesHar);
 var movSpeed = 500;
 setGravity(1000);
@@ -73,7 +73,7 @@ const BULLET_SPEED = 800;
 
 const checkpoint = add([
     sprite("checkpoint"),
-    scale(.20),
+    scale(.50),
     area(),
     body({isStatic: true}),
     pos(1100,100),
@@ -155,7 +155,7 @@ enemy.onStateUpdate("move", () => {
         alert("That's correct, but try to avoid the enemy!");
         go("plat-one-con");
     } else {
-        alert("Study Harder Bozo.");
+        alert("Do some more studying. The correct answer is " + conListAns[quesNum]);
         go("lose-con");
 
     }
@@ -168,7 +168,7 @@ enemy.onStateUpdate("move", () => {
         alert("That's correct! You're ready to move to the next level!");
         go("plat-two-con");
           } else {
-        alert("You'll need to try again..");
+        alert("You'll need to try again.. The correct answer was " + conListAns[quesNum]);
         go("lose-con");
     }
 
@@ -176,7 +176,8 @@ enemy.onStateUpdate("move", () => {
 
 scene("lose-con", () => {
 	add([
-		text("You Lose. Click to try again."),
+		text("You Lose. Click a key to try again."),
+        pos(375,250),
 	])
 	onKeyPress(() => go("plat-one-con"))
 })
@@ -184,14 +185,96 @@ scene("lose-con", () => {
 scene("plat-two-con",() => {
  loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
  loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
- loadBean();
+
+ const cursSprite = add([
+        sprite("cursor"),
+        scale(.10),
+        area(),
+        body(),
+        pos(50,300),
+        "player"
+ ])
+
+ const checkpoint = add([
+    sprite("checkpoint"),
+    scale(.50),
+    area(),
+    body({isStatic: true}),
+    pos(900,500),
+    "checkpoint"
+])
 
  add([
-      rect(width(), 48),
-      pos(0,height() - 48),
+        rect(200,100),
+        pos(100,400),
+        area(),
+        body({isStatic: true}),
+ ])
+
+ add([
+      rect(100,100),
+      pos(400,500),
       area(),
       body({isStatic: true}),
  ])
+
+ add([
+      rect(100,100),
+      pos(600,400),
+      area(),
+      body({isStatic: true}),
+ ])
+
+ add([
+      rect(100,100),
+      pos(800,200),
+      area(),
+      body({isStatic: true}),
+ ])
+
+ onKeyDown("left",() => {
+        cursSprite.move(-movSpeed,0);
+    })
+
+    onKeyDown("right",() => {
+        cursSprite.move(movSpeed,0);
+    })
+
+    onKeyDown("space",() => {
+        if(cursSprite.isGrounded()) {
+          cursSprite.jump();
+        }
+    })
+
+    cursSprite.onCollide("checkpoint",() => {
+        go("checkpoint-con-two");
+    })
+
+    cursSprite.onUpdate(() => {
+		if(cursSprite.pos.y >= 600) {
+			reactSprite();
+		}
+	})
+})
+
+function reactSprite(){
+    go("plat-two-con");
+}
+scene("checkpoint-con-two",() => {
+
+    var quesNumConHar = randi(0,7);
+    var quesSelec = prompt(conListQuesHar[quesNumConHar]);
+    if(quesSelec == conListAnsHar[quesNumConHar]){
+        alert("Ayy, you got it right!");
+          add([
+            text('This is the end of the game. Thanks for playing!'),
+            pos(150,250),
+          ])
+    } else{
+        alert("You got that wrong. The correct answer was " + conListAnsHar[quesNumConHar]);
+        go("lose-con");
+    }
+
 })
 
 /* Vocabulary */
@@ -200,7 +283,8 @@ scene("plat-one-voc",() => {
 
 loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
  loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
- loadBean()
+ loadBean();
+
  onKeyDown("left",() => {
         cursSprite.move(-movSpeed,0);
     })
@@ -303,7 +387,7 @@ enemy.onStateUpdate("move", () => {
             alert("Good job!");
             go("plat-one-voc");
         } else {
-            alert("Doesn't work.. Sorry!");
+            alert("That's not right.. The correct answer is " + vocabListAns[quesNumVoc]);
             go("lose-voc");
         }
     })
@@ -315,26 +399,85 @@ enemy.onStateUpdate("move", () => {
             alert("Good job! You're ready to move on.");
             go("plat-two-voc");
         }else{
-         alert("Doesn't work.. Sorry!");
+         alert("Doesn't work.. The correct answer was " + vocabListAns[quesNumVoc]);
             go("lose-voc");
         }
     })
 
 scene("lose-voc", () => {
 	add([
-		text("You Lose"),
+		text("You Lose. Click a key to try again."),
+        pos(300,250),
 	])
 	onKeyPress(() => go("plat-one-voc"));
 
 })
 
 scene("plat-two-voc", () => {
-    var quesNumVocHar = randi(0,4);
+ loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
+ loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
+
+ const cursSprite = add([
+        sprite("cursor"),
+        scale(.10),
+        area(),
+        body(),
+        pos(100,300),
+        "player"
+ ])
+
+ const checkpoint = add([
+    sprite("checkpoint"),
+    scale(.50),
+    area(),
+    body({isStatic: true}),
+    pos(950,100),
+    "checkpoint"
+])
+
+add([
+    rect(width(), 48),
+    pos(0, height() - 48),
+    area(),
+    body({isStatic: true}),
+])
+
+add([
+    rect(200,500),
+    pos(300,800),
+    area(),
+    body({isStatic: true}),
+])
+
+onKeyDown("left",() => {
+        cursSprite.move(-movSpeed,0);
+    })
+
+    onKeyDown("right",() => {
+        cursSprite.move(movSpeed,0);
+    })
+
+    onKeyDown("space",() => {
+        if(cursSprite.isGrounded()) {
+          cursSprite.jump();
+        }
+    })
+
+onClick("checkpoint", () => go("checkpoint-voc-two"));
+  })
+
+  scene("checkpoint-voc-two", () => {
+    var quesNumVocHar = randi(0,8);
     var quesSelec = prompt(vocabListQuesHar[quesNumVocHar]);
     if(quesSelec == vocabListAnsHar[quesNumVocHar]){
         alert("Ayy, you got it right!");
+        add([
+            text('This is the end of the game. Thanks for playing!'),
+            pos(150,250),
+        ])
     } else{
-        alert("Try harder bozo.");
+        alert("Correct that quickly. The correct answer was: " + vocabListAnsHar[quesNumVocHar]);
+        go("lose-voc");
     }
 })
 
