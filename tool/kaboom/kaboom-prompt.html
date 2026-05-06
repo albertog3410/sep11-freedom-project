@@ -382,7 +382,7 @@ enemy.onStateUpdate("move", () => {
             alert("Good job!");
             go("plat-one-voc");
         } else {
-            alert("Doesn't work.. Sorry!");
+            alert("That's not right.. The correct answer is " + vocabListAns[quesNumVoc]);
             go("lose-voc");
         }
     })
@@ -394,7 +394,7 @@ enemy.onStateUpdate("move", () => {
             alert("Good job! You're ready to move on.");
             go("plat-two-voc");
         }else{
-         alert("Doesn't work.. Sorry!");
+         alert("Doesn't work.. The correct answer was " + vocabListAns[quesNumVoc]);
             go("lose-voc");
         }
     })
@@ -413,7 +413,8 @@ scene("plat-two-voc", () => {
     if(quesSelec == vocabListAnsHar[quesNumVocHar]){
         alert("Ayy, you got it right!");
     } else{
-        alert("Try harder bozo. The correct answer was: " + vocabListAnsHar[quesNumVocHar]);
+        alert("Correct that quickly. The correct answer was: " + vocabListAnsHar[quesNumVocHar]);
+        go("lose-voc");
     }
 })
 
