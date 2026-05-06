@@ -3,40 +3,41 @@
 kaboom()
 import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
 // Load assets
+
 loadSprite("sprite", "/sprites/sprite.png")
 loadBean("bean")
 const SPEED = 320
 const ENEMY_SPEED = 160
-const BULLET_SPEED = 800
+const BULLET_SPEED = 700
 
 // Add player game object
 const player = add([
 	sprite("sprite"),
-	scale(.30),
-	pos(80, 80),
+	scale(.20),
+	pos(80, 400),
 	area(),
 	anchor("center"),
 ])
 // adding an multiple enemies that attack
-
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 5; i++) {
 const enemy = add([
     sprite("bean"),
-    pos(width() - 100, (height() / 7) * (i + 1)),
-    anchor("center"),
+    pos((width() / 6) * (i + 1),30),
+  //  anchor("center"),
     color(RED),
     area(),
     // The first string ("idle") sets the starting state
-    state("idle", ["attack"]),
-]);
+    state("idle", ["idle", "attack"]),
+])
     enemy.onStateEnter("idle", async () => {
-        await wait(1.5);
+         await wait(rand(1,1.5));
         enemy.enterState("attack");
     });
 
     enemy.onStateEnter("attack", async () => {
         if (player.exists()) {
-            const dir = player.pos.sub(enemy.pos).unit();
+        //    const dir = player.pos.sub(enemy.pos).unit();
+        const dir = 3730;
             add([
                 pos(enemy.pos),
                 move(dir, BULLET_SPEED),
@@ -51,15 +52,17 @@ const enemy = add([
         // GO BACK TO IDLE to wait for the next shot
         enemy.enterState("idle");
     });
-}
+
 
 // Collision detection (Lose condition)
 player.onCollide("bullet", (bullet) => {
     destroy(bullet);
     destroy(player);
     addKaboom(player.pos);
-    wait(1, () => go("main")); // Optional: Restart after 1 second
 });
+}
+
+
 
 // for(let i = 0; i < 3; i++) {
 // const enemy = add([
