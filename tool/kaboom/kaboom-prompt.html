@@ -182,9 +182,13 @@ scene("lose-con", () => {
 })
 
 scene("plat-two-con",() => {
- loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
- loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
- loadBean();
+    var quesNumConHar = randi(0,7);
+    var quesSelec = prompt(conListQuesHar[quesNumConHar]);
+    if(quesSelec == conListAnsHar[quesNumConHar]){
+        alert("Ayy, you got it right!");
+    } else{
+        alert("Try harder bozo.");
+    }
 
  add([
       rect(width(), 48),
