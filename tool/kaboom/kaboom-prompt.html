@@ -284,6 +284,7 @@ scene("plat-one-voc",() => {
 loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
  loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
  loadBean();
+
  onKeyDown("left",() => {
         cursSprite.move(-movSpeed,0);
     })
@@ -447,10 +448,33 @@ add([
     area(),
     body({isStatic: true}),
 ])
+
+onKeyDown("left",() => {
+        cursSprite.move(-movSpeed,0);
+    })
+
+    onKeyDown("right",() => {
+        cursSprite.move(movSpeed,0);
+    })
+
+    onKeyDown("space",() => {
+        if(cursSprite.isGrounded()) {
+          cursSprite.jump();
+        }
+    })
+
+onClick("checkpoint", () => go("checkpoint-voc-two"));
+  })
+
+  scene("checkpoint-voc-two", () => {
     var quesNumVocHar = randi(0,8);
     var quesSelec = prompt(vocabListQuesHar[quesNumVocHar]);
     if(quesSelec == vocabListAnsHar[quesNumVocHar]){
         alert("Ayy, you got it right!");
+        add([
+            text('This is the end of the game. Thanks for playing!'),
+            pos(150,250),
+        ])
     } else{
         alert("Correct that quickly. The correct answer was: " + vocabListAnsHar[quesNumVocHar]);
         go("lose-voc");
