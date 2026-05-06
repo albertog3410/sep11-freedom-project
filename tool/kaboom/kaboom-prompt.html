@@ -190,7 +190,7 @@ scene("plat-two-con",() => {
         scale(.10),
         area(),
         body(),
-        pos(100,400),
+        pos(50,300),
         "player"
  ])
 
@@ -199,7 +199,7 @@ scene("plat-two-con",() => {
     scale(.20),
     area(),
     body({isStatic: true}),
-    pos(1100,700),
+    pos(900,700),
     "checkpoint"
 ])
 
@@ -211,8 +211,8 @@ scene("plat-two-con",() => {
  ])
 
  add([
-      rect(100,100),
-      pos(400,500),
+      rect(200,100),
+      pos(200,500),
       area(),
       body({isStatic: true}),
  ])
@@ -230,7 +230,39 @@ scene("plat-two-con",() => {
       area(),
       body({isStatic: true}),
  ])
+
+ onKeyDown("left",() => {
+        cursSprite.move(-movSpeed,0);
+    })
+
+    onKeyDown("right",() => {
+        cursSprite.move(movSpeed,0);
+    })
+
+    onKeyDown("space",() => {
+        if(cursSprite.isGrounded()) {
+          cursSprite.jump();
+        }
+    })
+
+    cursSprite.onCollide("checkpoint",() => {
+        go("checkpoint-con-two");
+    })
 })
+
+scene("checkpoint-con-two",() => {
+
+    var quesNumConHar = randi(0,7);
+    var quesSelec = prompt(conListQuesHar[quesNumConHar]);
+    if(quesSelec == conListAnsHar[quesNumConHar]){
+        alert("Ayy, you got it right!");
+    } else{
+        alert("Try harder bozo. Back to the 1st Level you go!");
+        go("lose-con");
+    }
+
+})
+
 
 /* Vocabulary */
 
@@ -375,13 +407,5 @@ scene("plat-two-voc", () => {
         alert("Try harder bozo.");
     }
 })
-
-// var quesNumConHar = randi(0,7);
-//     var quesSelec = prompt(conListQuesHar[quesNumConHar]);
-//     if(quesSelec == conListAnsHar[quesNumConHar]){
-//         alert("Ayy, you got it right!");
-//     } else{
-//         alert("Try harder bozo.");
-//     }
 
 </script>
