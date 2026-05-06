@@ -73,7 +73,7 @@ const BULLET_SPEED = 800;
 
 const checkpoint = add([
     sprite("checkpoint"),
-    scale(.20),
+    scale(.50),
     area(),
     body({isStatic: true}),
     pos(1100,100),
@@ -196,10 +196,10 @@ scene("plat-two-con",() => {
 
  const checkpoint = add([
     sprite("checkpoint"),
-    scale(.20),
+    scale(.50),
     area(),
     body({isStatic: true}),
-    pos(900,700),
+    pos(900,500),
     "checkpoint"
 ])
 
@@ -212,7 +212,7 @@ scene("plat-two-con",() => {
 
  add([
       rect(100,100),
-      pos(300,500),
+      pos(400,500),
       area(),
       body({isStatic: true}),
  ])
