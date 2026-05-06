@@ -5,12 +5,22 @@ kaboom();
 
 /* Setting up Variables */
 
+/* Levels 1*/
 var conListQues = ["Hablar; Yo (Present Tense)", "Vivir; El (Present Tense)","Salir; Nosotras (Present Tense)","Beber; Ella (Present Tense)","Pintar; Ustedes (Present Tense)", "Comer; Ellas (Present Tense)", "Tener; Tu (Present Tense)", "Escuchar; Yo (Present Tense)", "Ser; Nosotros (Present Tense)", "Hacer; Usted (Present Tense)", "Ir; Ellos (Present Tense)"];
 var conListAns = ["Hablo","Vive","Salimos","Bebe","Pintan", "Comen", "Tienes", "Escucho", "Somos", "Hace", "Van"];
 console.log(conListQues);
-var vocabListQues = ["Language", "Escuela", "Night", "Trabajando", "To Study", "Maletas", "To Travel", "Communidad", "Future"];
+var vocabListQues = ["How do you say 'Language' in Spanish?", "¿Como se dice 'Escuela' en Ingles?", "How do you say 'Night' in Spanish?", "¿Como se dice 'Trabajando' en Ingles?", "How do you say 'To Study' in Spanish?", "¿Como se dice 'Maletas' en Ingles?", "How do you say 'To Travel' in Spanish?", "¿Como se dice 'Comunidad' en Ingles?", "How do you say 'Future' in Spanish?"];
 var vocabListAns = ["Idioma", "School", "Noche", "Working", "Estudiar", "Suitcases", "Viajar", "Community", "Futuro"];
 console.log(vocabListQues);
+
+/* Levels 2*/
+
+var conListQuesHar = ["Pescar; Tu (Past Tense)", "Tomar; Ella (Past Tense)", "Viajar; Nosotros (Imperfect Tense)", "Cuidar; El (Imperfect Tense)", "Querer; Yo (Future Tense)", "Buscar; Ellos (Future Tense)", "Jugar; Nosotras (Present Tense)", "Decir; Yo (Past Tense)"];
+var conListAnsHar = ["Pescaste", "Tomo", "Viajabamos", "Cuidaba", "Querre", "Buscaran", "Jugamos", "Dije"];
+console.log(conListQuesHar);
+var vocabListQuesHar = ["¿Como se dice 'Vuelos' en Ingles?", "How do you say 'To Leave' in Spanish?", "¿Como se dice 'Verano' en Ingles?", "How do you say 'Windows' in Spanish?", "¿Como se dice 'Me gusta perras.' en Ingles? Make sure to include proper punctuation."];
+var vocabListAnsHar = ["Flights", "Salir", "Summer", "Ventanas", "I like dogs."];
+console.log(vocabListQuesHar);
 var movSpeed = 500;
 setGravity(1000);
 
@@ -50,12 +60,9 @@ scene("plat-one-con",() => {
  loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
  loadBean()
 
-
-
-const ENEMY_SPEED = 500;
+const ENEMY_SPEED = 400;
 const BULLET_SPEED = 800;
-const movSpeed = 400;
- var cursSprite = add([
+ const cursSprite = add([
         sprite("cursor"),
         scale(.10),
         area(),
@@ -64,7 +71,7 @@ const movSpeed = 400;
         "player"
  ])
 
-var checkpoint = add([
+const checkpoint = add([
     sprite("checkpoint"),
     scale(.20),
     area(),
@@ -145,7 +152,7 @@ enemy.onStateUpdate("move", () => {
        var quesNum = randi(0,11);
        var ques = prompt(conListQues[quesNum]);
         if(ques == conListAns[quesNum]) {
-        alert("That's correct!");
+        alert("That's correct, but try to avoid the enemy!");
         go("plat-one-con");
     } else {
         alert("Study Harder Bozo.");
@@ -159,21 +166,33 @@ enemy.onStateUpdate("move", () => {
        var ques = prompt(conListQues[quesNum]);
         if(ques == conListAns[quesNum]) {
         alert("That's correct! You're ready to move to the next level!");
-        go("plat-one-con");
+        go("plat-two-con");
           } else {
         alert("You'll need to try again..");
         go("lose-con");
     }
 
     })
+
 scene("lose-con", () => {
 	add([
-		text("You Lose"),
+		text("You Lose. Click to try again."),
 	])
 	onKeyPress(() => go("plat-one-con"))
 })
 
+scene("plat-two-con",() => {
+ loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
+ loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
+ loadBean();
 
+ add([
+      rect(width(), 48),
+      pos(0,height() - 48),
+      area(),
+      body({isStatic: true}),
+ ])
+})
 
 /* Vocabulary */
 
@@ -197,8 +216,7 @@ loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
     })
 
 
-const ENEMY_SPEED = 500;
-const BULLET_SPEED = 800;
+const ENEMY_SPEED = 400;
 
  var cursSprite = add([
         sprite("cursor"),
@@ -295,7 +313,7 @@ enemy.onStateUpdate("move", () => {
         var quesTwo = prompt(vocabListQues[quesNumVoc]);
         if(quesTwo == vocabListAns[quesNumVoc]) {
             alert("Good job! You're ready to move on.");
-            go("plat-one-voc");
+            go("plat-two-voc");
         }else{
          alert("Doesn't work.. Sorry!");
             go("lose-voc");
@@ -306,8 +324,18 @@ scene("lose-voc", () => {
 	add([
 		text("You Lose"),
 	])
-	onKeyPress(() => go("plat-one-voc"))
+	onKeyPress(() => go("plat-one-voc"));
 
+})
+
+scene("plat-two-voc", () => {
+    var quesNumVocHar = randi(0,4);
+    var quesSelec = prompt(vocabListQuesHar[quesNumVocHar]);
+    if(quesSelec == vocabListAnsHar[quesNumVocHar]){
+        alert("Ayy, you got it right!");
+    } else{
+        alert("Try harder bozo.");
+    }
 })
 
 </script>
