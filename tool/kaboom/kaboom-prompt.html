@@ -173,6 +173,7 @@ enemy.onStateUpdate("move", () => {
     }
 
     })
+
 scene("lose-con", () => {
 	add([
 		text("You Lose. Click to try again."),
@@ -323,8 +324,18 @@ scene("lose-voc", () => {
 	add([
 		text("You Lose"),
 	])
-	onKeyPress(() => go("plat-one-voc"))
+	onKeyPress(() => go("plat-one-voc"));
 
+})
+
+scene("plat-two-voc", () => {
+    var quesNumVocHar = randi(0,4);
+    var quesSelec = prompt(vocabListQuesHar[quesNumVocHar]);
+    if(quesSelec == vocabListAnsHar[quesNumVocHar]){
+        alert("Ayy, you got it right!");
+    } else{
+        alert("Try harder bozo.");
+    }
 })
 
 </script>
