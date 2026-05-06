@@ -249,9 +249,16 @@ scene("plat-two-con",() => {
         go("checkpoint-con-two");
     })
 
-    if(cursSprite)
+    cursSprite.onUpdate(() => {
+		if(cursSprite.pos.y >= 600) {
+			reactSprite();
+		}
+	})
 })
 
+function reactSprite(){
+    go("plat-two-con");
+}
 scene("checkpoint-con-two",() => {
 
     var quesNumConHar = randi(0,7);
