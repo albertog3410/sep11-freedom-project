@@ -1,114 +1,43 @@
-<script type="module">
-
-// import kaboom.js
+<script type = "module">
+// Start kaboom
+kaboom()
 import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
-// start the game
-kaboom({
-background: [167, 252, 245],
-
-}
-)
-
-setGravity(2000)
-
-
-
-
-loadSprite("sprite", "sprites/sprite.png")
-loadSprite("platform", "sprites/platform.png");
+// Load assets
+loadSprite("sprite", "/sprites/sprite.png")
 loadBean("bean")
-
-
-const ENEMY_SPEED = 500;
+const SPEED = 320
+const ENEMY_SPEED = 160
 const BULLET_SPEED = 800
 
-
-
-
-// add character to screen, from a list of components
+// Add player game object
 const player = add([
-    sprite("sprite"),  // renders as a sprite
-    pos(80, 80),    // position in world
-    area(),          // has a collider
-    body(),          // responds to physics and gravity
-    scale(0.2),
-    health(3),
+	sprite("sprite"),
+	scale(.30),
+	pos(80, 80),
+	area(),
+	anchor("center"),
 ])
+// adding an multiple enemies that attack
+// const enemy = add([
+// 	sprite("bean"),
+// 	pos(width() - 80, height() - 80),
+// 	anchor("center"),
+// 	// This enemy cycle between 3 states, and start from "idle" state
+// 	state("idle", ["attack",]),
+// ])
 
+for (let i = 0; i < 3; i++) {
+	const x = rand(0, width())
+	const y = 30
 
-
-
-// random default character
-const enemy = add([
-    sprite("bean"),  // renders as a sprite
-    pos(500, 80),    // position in world
-    area(),          // has a collider
-    body(),          // responds to physics and gravity
-	state("move", [ "idle", "attack", "move" ]),
-])
-
-
-
-
-
-
-// platform character
-const platform = add([
-    sprite("platform"),
-    pos(200, 400),
-    area(),
-    scale(0.3),
-  body({ isStatic: true }),
-        move(LEFT, 40),
-        move(RIGHT, 40),
-
-
-
-
-])
-
-
-onKeyPress("space", () => {
-   if (player.isGrounded()) {
- player.jump(800);
-   }
-})
-
-
-onKeyDown("left", () => {
-	// .move() is provided by pos() component, move by pixels per second
-	player.move(-SPEED, 0)
-})
-const SPEED = 500
-
-onKeyDown("right", () => {
-	player.move(SPEED, 0)
-})
-
-
-const FLOOR_HEIGHT = 55;
-
-
-
-add([
-    rect(width(), 48),
-    pos(0, height() - 48),
-    outline(4),
-    area(),
-    body({ isStatic: true }),
-    color(127, 200, 255),
-])
-
-
-
-
-
-
-
-
-
-
-
+}
+	const enemy = add({
+		sprite("bean"),
+		pos(x,y),
+		state("idle", ["attack",]),
+	})
+// Run the callback once every time we enter "idle" state.
+// Here we stay "idle" for 0.5 second, then enter "attack" state.
 enemy.onStateEnter("idle", async () => {
 	await wait(0.5)
 	enemy.enterState("attack")
@@ -136,7 +65,7 @@ enemy.onStateEnter("attack", async () => {
 	}
 
 	await wait(1)
-	enemy.enterState("move")
+	enemy.enterState("attack")
 
 })
 
@@ -160,11 +89,20 @@ player.onCollide("bullet", (bullet) => {
 	addKaboom(bullet.pos)
 })
 
+// Register input handlers & movement
+onKeyDown("left", () => {
+	player.move(-SPEED, 0)
+})
 
+onKeyDown("right", () => {
+	player.move(SPEED, 0)
+})
 
+onKeyDown("up", () => {
+	player.move(0, -SPEED)
+})
 
+onKeyDown("down", () => {
+	player.move(0, SPEED)
+})
 </script>
-
-
-
-
