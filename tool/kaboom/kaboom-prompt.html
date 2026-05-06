@@ -141,17 +141,7 @@ enemy.onStateUpdate("move", () => {
 // Testing Circumstances (Conjugation).
 
     cursSprite.onCollide("enemy",() => {
-         var quesNum = randi(0,11);
-         var ques = prompt(conListQues[quesNum]);
-         if(ques == conListAns[quesNum]) {
-            alert("That's correct, but try to avoid the enemy!");
-          cursSprite.pos = spawnPointPlay;
-          enemy.pos = spawnPointEn;
-        } else {
-          alert("Study Harder Bozo.");
-          go("lose-con");
-         }
-        })
+        go("status-con");
 
     cursSprite.onCollide("checkpoint",() => {
         alert("Let's test your knowledge!");
@@ -160,18 +150,19 @@ enemy.onStateUpdate("move", () => {
   })
 })
 
-//  scene("status-con",() => {
-//        var quesNum = randi(0,11);
-//        var ques = prompt(conListQues[quesNum]);
-//         if(ques == conListAns[quesNum]) {
-//         alert("That's correct, but try to avoid the enemy!");
-//         cursSprite.pos = vec2(0,100);
-//     } else {
-//         alert("Study Harder Bozo.");
-//         go("lose-con");
+ scene("status-con",() => {
+       var quesNum = randi(0,11);
+       var ques = prompt(conListQues[quesNum]);
+        if(ques == conListAns[quesNum]) {
+        alert("That's correct, but try to avoid the enemy!");
+        cursSprite.pos = vec2(0,100);
+    } else {
+        alert("Study Harder Bozo.");
+        go("lose-con");
 
-//     }
-//     })
+    }
+    })
+}
 
     scene("check-point-con",() => {
          var quesNum = randi(0,11);
@@ -349,5 +340,6 @@ scene("plat-two-voc", () => {
         alert("Try harder bozo.");
     }
 })
+
 
 </script>
