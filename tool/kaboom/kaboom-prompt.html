@@ -62,7 +62,8 @@ scene("plat-one-con",() => {
 
 const ENEMY_SPEED = 400;
 const BULLET_SPEED = 800;
-const spawnPoint = vec2(100,400);
+const spawnPointPlay = vec2(100,400);
+const spawnPointEn = vec2(700,400);
 
  const cursSprite = add([
         sprite("cursor"),
@@ -144,8 +145,8 @@ enemy.onStateUpdate("move", () => {
          var ques = prompt(conListQues[quesNum]);
          if(ques == conListAns[quesNum]) {
             alert("That's correct, but try to avoid the enemy!");
-          cursSprite.pos = spawnPoint;
-          enemy.pos = vec2(700,300);
+          cursSprite.pos = spawnPointPlay;
+          enemy.pos = spawnPointEn;
         } else {
           alert("Study Harder Bozo.");
           go("lose-con");
