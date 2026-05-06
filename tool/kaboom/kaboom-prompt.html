@@ -438,12 +438,14 @@ add([
     rect(width(), 48),
     pos(0, height() - 48),
     area(),
-    body({isStatic: true})
+    body({isStatic: true}),
 ])
 
 add([
     rect(200,500),
-    pos(300,height() - 48)
+    pos(300,height() - 48),
+    area(),
+    body({isStatic: true}),
 ])
     var quesNumVocHar = randi(0,8);
     var quesSelec = prompt(vocabListQuesHar[quesNumVocHar]);
