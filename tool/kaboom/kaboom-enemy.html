@@ -18,76 +18,112 @@ const player = add([
 	anchor("center"),
 ])
 // adding an multiple enemies that attack
+
+for (let i = 0; i < 6; i++) {
+const enemy = add([
+    sprite("bean"),
+    pos(width() - 100, (height() / 7) * (i + 1)),
+    anchor("center"),
+    color(RED),
+    area(),
+    // The first string ("idle") sets the starting state
+    state("idle", ["attack"]),
+]);
+    enemy.onStateEnter("idle", async () => {
+        await wait(1.5);
+        enemy.enterState("attack");
+    });
+
+    enemy.onStateEnter("attack", async () => {
+        if (player.exists()) {
+            const dir = player.pos.sub(enemy.pos).unit();
+            add([
+                pos(enemy.pos),
+                move(dir, BULLET_SPEED),
+                rect(12, 12),
+                area(),
+                offscreen({ destroy: true }),
+                anchor("center"),
+                color(BLUE),
+                "bullet",
+            ]);
+        }
+        // GO BACK TO IDLE to wait for the next shot
+        enemy.enterState("idle");
+    });
+}
+
+// Collision detection (Lose condition)
+player.onCollide("bullet", (bullet) => {
+    destroy(bullet);
+    destroy(player);
+    addKaboom(player.pos);
+    wait(1, () => go("main")); // Optional: Restart after 1 second
+});
+
+// for(let i = 0; i < 3; i++) {
 // const enemy = add([
 // 	sprite("bean"),
-// 	pos(width() - 80, height() - 80),
-// 	anchor("center"),
+// pos(width() - 100, (height() / 4) * (i + 1)), // Spread them out vertically	anchor("center"),
 // 	// This enemy cycle between 3 states, and start from "idle" state
 // 	state("idle", ["attack",]),
-// ])
+// })
+// enemy.onStateEnter("idle", async () => {
+// 	await wait(0.5),
+// 	enemy.enterState("attack"),
+// })
 
-for (let i = 0; i < 3; i++) {
-	const x = rand(0, width())
-	const y = 30
+// // When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
+// enemy.onStateEnter("attack", async () => {
 
-}
-	const enemy = add({
-		sprite("bean"),
-		pos(x,y),
-		state("idle", ["attack",]),
-	})
+// 	// Don't do anything if player doesn't exist anymore
+// 	if (player.exists()) {
+
+// 		const dir = player.pos.sub(enemy.pos).unit()
+
+// 		add([
+// 			pos(enemy.pos),
+// 			move(dir, BULLET_SPEED),
+// 			rect(12, 12),
+// 			area(),
+// 			offscreen({ destroy: true }),
+// 			anchor("center"),
+// 			color(BLUE),
+// 			"bullet",
+// 		])
+
+// 	}
+
+// 	await wait(1)
+// 	enemy.enterState("attack")
+
+// })
+
+// enemy.onStateEnter("move", async () => {
+// 	await wait(2)
+// 	enemy.enterState("idle")
+// })
+
+// // Like .onUpdate() which runs every frame, but only runs when the current state is "move"
+// // Here we move towards the player every frame if the current state is "move"
+// enemy.onStateUpdate("move", () => {
+// 	if (!player.exists()) return
+// 	const dir = player.pos.sub(enemy.pos).unit()
+// 	enemy.move(dir.scale(ENEMY_SPEED))
+// })
+
+// // Taking a bullet makes us disappear
+// player.onCollide("bullet", (bullet) => {
+// 	destroy(bullet)
+// 	destroy(player)
+// 	addKaboom(bullet.pos)
+// 		})
+
+
+// 	])
+// }
 // Run the callback once every time we enter "idle" state.
 // Here we stay "idle" for 0.5 second, then enter "attack" state.
-enemy.onStateEnter("idle", async () => {
-	await wait(0.5)
-	enemy.enterState("attack")
-})
-
-// When we enter "attack" state, we fire a bullet, and enter "move" state after 1 sec
-enemy.onStateEnter("attack", async () => {
-
-	// Don't do anything if player doesn't exist anymore
-	if (player.exists()) {
-
-		const dir = player.pos.sub(enemy.pos).unit()
-
-		add([
-			pos(enemy.pos),
-			move(dir, BULLET_SPEED),
-			rect(12, 12),
-			area(),
-			offscreen({ destroy: true }),
-			anchor("center"),
-			color(BLUE),
-			"bullet",
-		])
-
-	}
-
-	await wait(1)
-	enemy.enterState("attack")
-
-})
-
-enemy.onStateEnter("move", async () => {
-	await wait(2)
-	enemy.enterState("idle")
-})
-
-// Like .onUpdate() which runs every frame, but only runs when the current state is "move"
-// Here we move towards the player every frame if the current state is "move"
-enemy.onStateUpdate("move", () => {
-	if (!player.exists()) return
-	const dir = player.pos.sub(enemy.pos).unit()
-	enemy.move(dir.scale(ENEMY_SPEED))
-})
-
-// Taking a bullet makes us disappear
-player.onCollide("bullet", (bullet) => {
-	destroy(bullet)
-	destroy(player)
-	addKaboom(bullet.pos)
-})
 
 // Register input handlers & movement
 onKeyDown("left", () => {
