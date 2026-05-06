@@ -182,13 +182,26 @@ scene("lose-con", () => {
 })
 
 scene("plat-two-con",() => {
-    var quesNumConHar = randi(0,7);
-    var quesSelec = prompt(conListQuesHar[quesNumConHar]);
-    if(quesSelec == conListAnsHar[quesNumConHar]){
-        alert("Ayy, you got it right!");
-    } else{
-        alert("Try harder bozo.");
-    }
+ loadSprite("cursor","sprites/cursor.png"); // Player Sprite (Temporary)
+ loadSprite("checkpoint", "sprites/checkpoint.png"); // Gateway to Levels
+
+ const cursSprite = add([
+        sprite("cursor"),
+        scale(.10),
+        area(),
+        body(),
+        pos(100,400),
+        "player"
+ ])
+
+ const checkpoint = add([
+    sprite("checkpoint"),
+    scale(.20),
+    area(),
+    body({isStatic: true}),
+    pos(1100,700),
+    "checkpoint"
+])
 
  add([
         rect(100,100),
@@ -207,6 +220,13 @@ scene("plat-two-con",() => {
  add([
       rect(100,100),
       pos(600,400),
+      area(),
+      body({isStatic: true}),
+ ])
+
+ add([
+      rect(100,100),
+      pos(800,200),
       area(),
       body({isStatic: true}),
  ])
@@ -355,5 +375,13 @@ scene("plat-two-voc", () => {
         alert("Try harder bozo.");
     }
 })
+
+// var quesNumConHar = randi(0,7);
+//     var quesSelec = prompt(conListQuesHar[quesNumConHar]);
+//     if(quesSelec == conListAnsHar[quesNumConHar]){
+//         alert("Ayy, you got it right!");
+//     } else{
+//         alert("Try harder bozo.");
+//     }
 
 </script>
