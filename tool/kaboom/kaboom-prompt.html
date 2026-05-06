@@ -62,9 +62,6 @@ scene("plat-one-con",() => {
 
 const ENEMY_SPEED = 400;
 const BULLET_SPEED = 800;
-const spawnPointPlay = vec2(100,400);
-const spawnPointEn = vec2(700,400);
-
  const cursSprite = add([
         sprite("cursor"),
         scale(.10),
@@ -142,6 +139,7 @@ enemy.onStateUpdate("move", () => {
 
     cursSprite.onCollide("enemy",() => {
         go("status-con");
+        })
 
     cursSprite.onCollide("checkpoint",() => {
         alert("Let's test your knowledge!");
@@ -155,14 +153,13 @@ enemy.onStateUpdate("move", () => {
        var ques = prompt(conListQues[quesNum]);
         if(ques == conListAns[quesNum]) {
         alert("That's correct, but try to avoid the enemy!");
-        cursSprite.pos = vec2(0,100);
+        go("plat-one-con");
     } else {
         alert("Study Harder Bozo.");
         go("lose-con");
 
     }
     })
-}
 
     scene("check-point-con",() => {
          var quesNum = randi(0,11);
@@ -340,6 +337,5 @@ scene("plat-two-voc", () => {
         alert("Try harder bozo.");
     }
 })
-
 
 </script>
