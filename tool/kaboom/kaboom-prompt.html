@@ -155,7 +155,7 @@ enemy.onStateUpdate("move", () => {
         alert("That's correct, but try to avoid the enemy!");
         go("plat-one-con");
     } else {
-        alert("Do some more studying. The correct answer is ");
+        alert("Do some more studying. The correct answer is " + conListAns[quesNum]);
         go("lose-con");
 
     }
