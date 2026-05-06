@@ -406,7 +406,7 @@ enemy.onStateUpdate("move", () => {
 scene("lose-voc", () => {
 	add([
 		text("You Lose. Click a key to try again."),
-        pos(375,250),
+        pos(300,250),
 	])
 	onKeyPress(() => go("plat-one-voc"));
 
@@ -421,7 +421,7 @@ scene("plat-two-voc", () => {
         scale(.10),
         area(),
         body(),
-        pos(50,300),
+        pos(100,300),
         "player"
  ])
 
@@ -430,7 +430,7 @@ scene("plat-two-voc", () => {
     scale(.50),
     area(),
     body({isStatic: true}),
-    pos(900,500),
+    pos(950,100),
     "checkpoint"
 ])
 
