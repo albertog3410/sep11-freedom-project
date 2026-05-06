@@ -176,7 +176,7 @@ enemy.onStateUpdate("move", () => {
 
 scene("lose-con", () => {
 	add([
-		text("You Lose. Click to try again."),
+		text("You Lose. Click a key to try again."),
         pos(375,250),
 	])
 	onKeyPress(() => go("plat-one-con"))
@@ -266,6 +266,10 @@ scene("checkpoint-con-two",() => {
     var quesSelec = prompt(conListQuesHar[quesNumConHar]);
     if(quesSelec == conListAnsHar[quesNumConHar]){
         alert("Ayy, you got it right!");
+          add([
+            text('This is the end of the game. Thanks for playing!'),
+            pos(375,250),
+          ])
     } else{
         alert("You got that wrong. The correct answer was " + conListAnsHar[quesNumConHar]);
         go("lose-con");
@@ -401,7 +405,8 @@ enemy.onStateUpdate("move", () => {
 
 scene("lose-voc", () => {
 	add([
-		text("You Lose"),
+		text("You Lose. Click a key to try again."),
+        pos(375,250),
 	])
 	onKeyPress(() => go("plat-one-voc"));
 
