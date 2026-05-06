@@ -191,8 +191,22 @@ scene("plat-two-con",() => {
     }
 
  add([
-      rect(width(), 48),
-      pos(0,height() - 48),
+        rect(100,100),
+        pos(100,400),
+        area(),
+        body({isStatic: true}),
+ ])
+
+ add([
+      rect(100,100),
+      pos(400,500),
+      area(),
+      body({isStatic: true}),
+ ])
+
+ add([
+      rect(100,100),
+      pos(600,400),
       area(),
       body({isStatic: true}),
  ])
