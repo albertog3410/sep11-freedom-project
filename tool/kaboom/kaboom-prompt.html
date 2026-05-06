@@ -155,7 +155,7 @@ enemy.onStateUpdate("move", () => {
         alert("That's correct, but try to avoid the enemy!");
         go("plat-one-con");
     } else {
-        alert("Study Harder Bozo.");
+        alert("Do some more studying. The correct answer is ");
         go("lose-con");
 
     }
@@ -168,7 +168,7 @@ enemy.onStateUpdate("move", () => {
         alert("That's correct! You're ready to move to the next level!");
         go("plat-two-con");
           } else {
-        alert("You'll need to try again..");
+        alert("You'll need to try again.. The correct answer was " + conListAns[quesNum]);
         go("lose-con");
     }
 
@@ -267,7 +267,7 @@ scene("checkpoint-con-two",() => {
     if(quesSelec == conListAnsHar[quesNumConHar]){
         alert("Ayy, you got it right!");
     } else{
-        alert("You got that wrong. Back to the 1st Level you go!");
+        alert("You got that wrong. The correct answer was " + conListAnsHar[quesNumConHar]);
         go("lose-con");
     }
 
