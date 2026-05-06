@@ -143,8 +143,8 @@ enemy.onStateUpdate("move", () => {
          var ques = prompt(conListQues[quesNum]);
          if(ques == conListAns[quesNum]) {
             alert("That's correct, but try to avoid the enemy!");
-          cursSprite.pos = vec2(100, 100);
-          enemy.pos = vec2(700,300); 
+          cursSprite.pos = vec2(100,100);
+          enemy.pos = vec2(700,300);
         } else {
           alert("Study Harder Bozo.");
           go("lose-con");
