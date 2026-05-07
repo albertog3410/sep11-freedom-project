@@ -197,37 +197,37 @@ scene("plat-two-con",() => {
 
  const checkpoint = add([
     sprite("checkpoint"),
-    scale(.50),
+    scale(.30),
     area(),
     body({isStatic: true}),
-    pos(900,500),
+    pos(1000,300),
     "checkpoint"
 ])
 
  add([
-        rect(200,100),
+        rect(150,100),
         pos(100,400),
         area(),
         body({isStatic: true}),
  ])
 
  add([
-      rect(100,100),
-      pos(400,500),
+      rect(150,100),
+      pos(400,400),
       area(),
       body({isStatic: true}),
  ])
 
  add([
-      rect(100,100),
+      rect(150,100),
       pos(600,400),
       area(),
       body({isStatic: true}),
  ])
 
  add([
-      rect(100,100),
-      pos(800,200),
+      rect(150,100),
+      pos(800,400),
       area(),
       body({isStatic: true}),
  ])
@@ -256,6 +256,65 @@ scene("plat-two-con",() => {
 		}
 	})
 })
+for (let i = 0; i < 5; i++) {
+const enemy = add([
+    sprite("bean"),
+    pos((width() / 6) * (i + 1),30),
+  //  anchor("center"),
+    color(RED),
+    area(),
+    // The first string ("idle") sets the starting state
+    state("idle", ["idle", "attack"]),
+])
+    enemy.onStateEnter("idle", async () => {
+         await wait(rand(1,1.5));
+        enemy.enterState("attack");
+    });
+
+    enemy.onStateEnter("attack", async () => {
+        if (cursSprite.exists()) {
+        //    const dir = player.pos.sub(enemy.pos).unit();
+        const dir = 3730;
+            add([
+                pos(enemy.pos),
+                move(dir, BULLET_SPEED),
+                rect(12, 12),
+                area(),
+                offscreen({ destroy: true }),
+                anchor("center"),
+                color(BLUE),
+                "bullet",
+            ]);
+        }
+        // GO BACK TO IDLE to wait for the next shot
+        enemy.enterState("idle");
+    });
+
+
+// Collision detection (Lose condition)
+cursSprite.onCollide("bullet", (bullet) => {
+    destroy(bullet);
+
+
+    destroy(cursSprite);
+});
+}
+// function for level 2 conjugation 
+function hitByEnemy() {
+    scene("status-two-con",() => {
+       var conListQuesHar = randi(0,11);
+       var ques = prompt(conListQues[quesNum]);
+        if(ques == conListAns[quesNum]) {
+        alert("That's correct, but try to avoid the enemy!");
+        go("plat-two-con");
+    } else {
+        alert("Do some more studying. The correct answer is " + conListAns[quesNum]);
+        go("lose-con");
+
+    }
+    })
+
+}
 
 function reactSprite(){
     go("plat-two-con");
@@ -480,5 +539,4 @@ onClick("checkpoint", () => go("checkpoint-voc-two"));
         go("lose-voc");
     }
 })
-
 </script>
