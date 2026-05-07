@@ -11,7 +11,9 @@
   * (Insert some improv, segway into the product).
 ## Product
 * Alberto and Brianna will demo the product.
-  * Alberto demos the 
+  * Alberto demos the conjugation mode(?)
+  * Brianna demos the vocabulary mode(?)
+    * If time, make it interactive: Ask class for their answers to the questions. 
 
 ## Process
 *
