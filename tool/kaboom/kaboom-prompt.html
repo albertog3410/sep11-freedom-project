@@ -18,8 +18,8 @@ console.log(vocabListQues);
 var conListQuesHar = ["Pescar; Tu (Past Tense)", "Tomar; Ella (Past Tense)", "Viajar; Nosotros (Imperfect Tense)", "Cuidar; El (Imperfect Tense)", "Querer; Yo (Future Tense)", "Buscar; Ellos (Future Tense)", "Jugar; Nosotras (Present Tense)", "Decir; Yo (Past Tense)"];
 var conListAnsHar = ["Pescaste", "Tomo", "Viajabamos", "Cuidaba", "Querre", "Buscaran", "Jugamos", "Dije"];
 console.log(conListQuesHar);
-var vocabListQuesHar = ["¿Como se dice 'Vuelos' en Ingles?", "How do you say 'To Leave' in Spanish?", "¿Como se dice 'Verano' en Ingles?", "How do you say 'Windows' in Spanish?", "¿Como se dice 'Me gusta perras.' en Ingles?", "How do you say 'My favorite color is purple.' in Spanish?", "¿Como se dice 'Yo necesito dinero para el restaraunte' en Ingles?", "How do you say 'I flew to Chile during Summer Break.' in Spanish?"];
-var vocabListAnsHar = ["Flights", "Salir", "Summer", "Ventanas", "I like dogs.", "My color favorito es Morado.", "I need money for the restaurant.", "Yo viaje a Chile durante el vacacion de verano"];
+var vocabListQuesHar = ["¿Como se dice 'Vuelos' en Ingles?", "How do you say 'To Leave' in Spanish?", "¿Como se dice 'Verano' en Ingles?", "How do you say 'Windows' in Spanish?", "¿Como se dice 'Me gusta perras.' en Ingles?", "How do you say 'My favorite color is purple.' in Spanish?", "¿Como se dice 'Yo necesito dinero para el restaraunte.' en Ingles?", "How do you say 'I flew to Chile during Summer Break.' in Spanish?"];
+var vocabListAnsHar = ["Flights", "Salir", "Summer", "Ventanas", "I like dogs.", "My color favorito es Morado.", "I need money for the restaurant.", "Yo viaje a Chile durante el vacacion de verano."];
 console.log(vocabListQuesHar);
 var movSpeed = 500;
 setGravity(1000);
@@ -490,7 +490,7 @@ scene("plat-two-voc", () => {
     scale(.50),
     area(),
     body({isStatic: true}),
-    pos(950,100),
+    pos(1120,100),
     "checkpoint"
 ])
 
@@ -502,11 +502,43 @@ add([
 ])
 
 add([
-    rect(200,500),
-    pos(300,800),
+    rect(200,800),
+    pos(600,200),
     area(),
     body({isStatic: true}),
-])
+ ])
+
+
+ add([
+    rect(100,50),
+    pos(500,500),
+    area(),
+    body({isStatic: true}),
+ ])
+
+  add([
+    rect(140,50),
+    pos(550,300),
+    area(),
+    body({isStatic: true}),
+ ])
+
+add([
+    rect(90,50),
+    pos(950,50),
+    area(),
+    body({isStatic: true}),
+ ])
+
+ add([
+    rect(90,1),
+    pos(950,0),
+    area(),
+    body({isStatic: true}),
+ ])
+
+
+
 
 onKeyDown("left",() => {
         cursSprite.move(-movSpeed,0);
@@ -522,10 +554,11 @@ onKeyDown("left",() => {
         }
     })
 
-onClick("checkpoint", () => go("checkpoint-voc-two"));
+cursSprite.onCollide("checkpoint", () => go("checkpoint-voc-two"));
   })
 
   scene("checkpoint-voc-two", () => {
+    alert("Before answering, be warned that you will need to pay attention for the wording of the prompt.")
     var quesNumVocHar = randi(0,8);
     var quesSelec = prompt(vocabListQuesHar[quesNumVocHar]);
     if(quesSelec == vocabListAnsHar[quesNumVocHar]){
