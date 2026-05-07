@@ -1,7 +1,8 @@
 # Presentation Plan
 
 ## Hook
-* 
+* Brianna: Begin with an intro to the slides in Spanish.
+  * "Hello everyone! This is Alberto, my name is Brianna, and as you all should know, a lot of Juniors are about to commit to the Spanish Regents 
 
 ## Product
 *
