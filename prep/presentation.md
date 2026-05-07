@@ -8,7 +8,7 @@
   * "..How many of you understood what she said? Raise your hand if you did, because I know I sure didn't."
 * Waiting..
 * Alberto and Brianna (Alberto first): Clarifies why the hook is relevant.
-  * (Improv, then tie it to the product)
+  * (Insert some improv, segway into the product).
 ## Product
 *
 
