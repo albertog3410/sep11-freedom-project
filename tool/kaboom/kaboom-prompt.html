@@ -499,7 +499,7 @@ cursSprite.onCollide("checkpoint", () => go("checkpoint-voc-two"));
   })
 
   scene("checkpoint-voc-two", () => {
-    alert("Before answering, be warned )
+    alert("Before answering, be warned that you will need to pay attention for the wording of the prompt.")
     var quesNumVocHar = randi(0,8);
     var quesSelec = prompt(vocabListQuesHar[quesNumVocHar]);
     if(quesSelec == vocabListAnsHar[quesNumVocHar]){
