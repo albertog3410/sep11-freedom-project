@@ -21,8 +21,12 @@
   * While doing this, start to bring up some of the problems you faced.
     * Brianna: Deliberately pick out a snippet of code that gave you the most trouble (Scene hopping), and show what you did to try and remedy it.
     * Alberto: Also pick out a snippet of code that gave you the most trouble during the project.
-
-
+* Refer back to the Beyond MVP (also show a screenshot)
+  * Mention how the Beyond MVP took ideas that the public had, which consisted of error fixes and an additional level.
+* Demonstrate the struggles but successes to achieve the Beyond MVPs that were ultimately completed.
+  * Include and explain snippets of code from the Beyond MVP (specifically code of what you did for it).
+    * Brianna = The new arrays with the questions and answers
+    * Alberto = The enemies for Level 2; Conjugation (and the bullets they fire)
 ## Conclusion
 * Restate the significance of the project to the both of us.
   * Practice for the Spanish Regents
@@ -32,7 +36,8 @@
   * Alberto's Takeaway: If you do not understand a strand of code, especially if you're the one who made it, do NOT copy and paste it into your program without taking the time to understand it beforehand.
   * Brianna's Takeaway: Before writing code, ensure it can work in tandem with the code around it; One error that you are unable to track will make your program function in a completely different way, or not function at all.
 * End with one final statement (either in English or Spanish):
-  * "Even if you do not take the Spanish Regents soon, learning a new language is significant in the growth of not just relationships, but you as well in all sorts of aspects. All it takes is time and patience. Will you put in the time to expand your mind?"
+  * "Even if you do not take the Spanish Regents soon, learning a new language is significant in the growth of not just relationships, but you as well in all sorts of aspects. All it takes is time and patience. Will you put in the time to expand your mind?" (English)
+  * "Aunque no vayas a presentar pronto el examen Regents de español, aprender un nuevo idioma es fundamental para el crecimiento, no solo de tus relaciones, sino también de ti mismo en todo tipo de aspectos. Todo lo que se necesita es tiempo y paciencia. ¿Dedicarás el tiempo necesario para expandir tu mente?" (Spanish)
 
 
 <!-- EXAMPLE
