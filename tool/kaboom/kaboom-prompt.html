@@ -21,6 +21,8 @@ console.log(conListQuesHar);
 var vocabListQuesHar = ["¿Como se dice 'Vuelos' en Ingles?", "How do you say 'To Leave' in Spanish?", "¿Como se dice 'Verano' en Ingles?", "How do you say 'Windows' in Spanish?", "¿Como se dice 'Me gusta perras.' en Ingles?", "How do you say 'My favorite color is purple.' in Spanish?", "¿Como se dice 'Yo necesito dinero para el restaraunte.' en Ingles?", "How do you say 'I flew to Chile during Summer Break.' in Spanish?"];
 var vocabListAnsHar = ["Flights", "Salir", "Summer", "Ventanas", "I like dogs.", "My color favorito es Morado.", "I need money for the restaurant.", "Yo viaje a Chile durante el vacacion de verano."];
 console.log(vocabListQuesHar);
+
+const BULLET_SPEED = 800;
 var movSpeed = 500;
 setGravity(1000);
 
@@ -61,7 +63,6 @@ scene("plat-one-con",() => {
  loadBean()
 
 const ENEMY_SPEED = 400;
-const BULLET_SPEED = 800;
  const cursSprite = add([
         sprite("cursor"),
         scale(.10),
@@ -277,7 +278,7 @@ const enemy = add([
         const dir = 3730;
             add([
                 pos(enemy.pos),
-                move(dir, 600),
+                move(dir, BULLET_SPEED),
                 rect(12, 12),
                 area(),
                 offscreen({ destroy: true }),
