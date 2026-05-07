@@ -10,7 +10,8 @@
 * Alberto and Brianna (Alberto first): Clarifies why the hook is relevant.
   * (Insert some improv, segway into the product).
 ## Product
-*
+* Alberto and Brianna will demo the product.
+  * Alberto demos the 
 
 ## Process
 *
