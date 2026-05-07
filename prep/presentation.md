@@ -32,7 +32,7 @@
   * Alberto's Takeaway: If you do not understand a strand of code, especially if you're the one who made it, do NOT copy and paste it into your program without taking the time to understand it beforehand.
   * Brianna's Takeaway: Before writing code, ensure it can work in tandem with the code around it; One error that you are unable to track will make your program function in a completely different way, or not function at all.
 * End with one final statement (either in English or Spanish):
-  * "Even if this
+  * "Even if you do not take the Spanish Regents soon, learning a new language is significant in the growth of not just relationships, but you as well in all sorts of aspects. All it takes is time and patience. Will you put in the time to expand your mind?"
 
 
 <!-- EXAMPLE
