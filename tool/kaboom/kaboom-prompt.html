@@ -464,6 +464,22 @@ add([
     body({isStatic: true}),
  ])
 
+add([
+    rect(90,50),
+    pos(950,50),
+    area(),
+    body({isStatic: true}),
+ ])
+
+ add([
+    rect(90,50),
+    pos(950,0),
+    area(),
+    body({isStatic: true}),
+ ])
+
+
+
 
 onKeyDown("left",() => {
         cursSprite.move(-movSpeed,0);
