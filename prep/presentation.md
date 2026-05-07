@@ -13,14 +13,26 @@
 *
 
 ## Process
-*
+* List a screenshot of the initial project plan.
+* Mention what your part was for the project.
+  * Brianna = Questions, Answers & Level Design
+  * Alberto = Enemies & Level Design
+* Display snippet of code from both first levels (Conjugation & Vocabulary)
+  * While doing this, start to bring up some of the problems you faced.
+    * Brianna: Deliberately pick out a snippet of code that gave you the most trouble (Scene hopping), and show what you did to try and remedy it.
+    * Alberto: Also pick out a snippet of code that gave you the most trouble during the project.
+
 
 ## Conclusion
+* Restate the significance of the project to the both of us.
+  * Practice for the Spanish Regents
 * Refer back to the link of the game if anyone wanted to try on their own free time.
   * [https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html]
 * Dive into takeaways (one from both Alberto and Brianna).
   * Alberto's Takeaway: If you do not understand a strand of code, especially if you're the one who made it, do NOT copy and paste it into your program without taking the time to understand it beforehand.
-  * Brianna's Takeaway: 
+  * Brianna's Takeaway: Before writing code, ensure it can work in tandem with the code around it; One error that you are unable to track will make your program function in a completely different way, or not function at all.
+* End with one final statement (either in English or Spanish):
+  * "Even if this
 
 
 <!-- EXAMPLE
