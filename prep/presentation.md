@@ -16,7 +16,12 @@
 *
 
 ## Conclusion
-*
+* Refer back to the link of the game if anyone wanted to try on their own free time.
+  * [https://albertog3410.github.io/sep11-freedom-project/tool/kaboom/kaboom-prompt.html]
+* Dive into takeaways (one from both Alberto and Brianna).
+  * Alberto's Takeaway: If you do not understand a strand of code, especially if you're the one who made it, do NOT copy and paste it into your program without taking the time to understand it beforehand.
+  * Brianna's Takeaway: 
+
 
 <!-- EXAMPLE
 
