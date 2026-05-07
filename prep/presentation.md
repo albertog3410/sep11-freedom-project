@@ -2,8 +2,8 @@
 
 ## Hook
 * Brianna: Begin with an intro to the slides in Spanish.
-  * "Hello everyone! This is Alberto, my name is Brianna, and as you all should know, a lot of Juniors are about to commit to the Spanish Regents in late May and June. We need to be prepared for this, as it's especially important for a lot of people who, like myself, are trying to get an Advanced Regents diploma. Do any you have ideas on how you're studying for the Regents?"
-  * ""
+  * "Hello everyone! This is Alberto, my name is Brianna, and as you all should know, a lot of Juniors are about to commit to the Spanish Regents in late May and June. We need to be prepared for this, as it's especially important for a lot of people who, like myself, are trying to get an Advanced Regents diploma. Do any you have ideas on how you're studying for the Regents?" (English)
+  * "¡Hola a todos! Soy Alberto, yo soy Brianna y —como ya sabrán— muchos de los estudiantes de tercer año están a punto de presentar el examen Regents de español a finales de mayo y en junio. Necesitamos prepararnos para él, ya que es particularmente importante para muchas personas que, como yo, aspiran a obtener un Diploma Regents Avanzado. ¿Alguno de ustedes tiene ideas sobre cómo se está preparando para el examen Regents?" (Spanish)
 
 ## Product
 *
