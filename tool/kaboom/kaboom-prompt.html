@@ -277,7 +277,7 @@ const enemy = add([
         const dir = 3730;
             add([
                 pos(enemy.pos),
-                move(dir, BULLET_SPEED),
+                move(dir, 800),
                 rect(12, 12),
                 area(),
                 offscreen({ destroy: true }),
@@ -294,7 +294,7 @@ const enemy = add([
 // Collision detection (Lose condition)
 cursSprite.onCollide("bullet", (bullet) => {
     destroy(bullet);
-    hitbyEnemy();
+    hitByEnemy();
 });
 }
 })
