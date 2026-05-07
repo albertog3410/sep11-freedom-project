@@ -255,7 +255,7 @@ scene("plat-two-con",() => {
 			reactSprite();
 		}
 	})
-})
+
 for (let i = 0; i < 5; i++) {
 const enemy = add([
     sprite("bean"),
@@ -294,31 +294,31 @@ const enemy = add([
 // Collision detection (Lose condition)
 cursSprite.onCollide("bullet", (bullet) => {
     destroy(bullet);
-
-
-    destroy(cursSprite);
+    hitbyEnemy();
 });
 }
-// function for level 2 conjugation 
+})
+// function for level 2 conjugation
 function hitByEnemy() {
-    scene("status-two-con",() => {
-       var conListQuesHar = randi(0,11);
-       var ques = prompt(conListQues[quesNum]);
-        if(ques == conListAns[quesNum]) {
-        alert("That's correct, but try to avoid the enemy!");
-        go("plat-two-con");
-    } else {
-        alert("Do some more studying. The correct answer is " + conListAns[quesNum]);
-        go("lose-con");
-
-    }
-    })
-
+    go("status-two-con");
 }
 
 function reactSprite(){
     go("plat-two-con");
 }
+
+ scene("status-two-con",() => {
+       var ranQuesSelc = randi(0,11);
+       var ques = prompt(conListQuesHar[ranQuesSelc]);
+        if(ques == conListAnsHar[ranQuesSelc]) {
+        alert("That's correct, but try to avoid the enemy!");
+        go("plat-two-con");
+    } else {
+        alert("Do some more studying. The correct answer is " + conListAnsHar[ranQuesSelc]);
+        go("lose-con");
+
+    }
+    })
 scene("checkpoint-con-two",() => {
 
     var quesNumConHar = randi(0,7);
